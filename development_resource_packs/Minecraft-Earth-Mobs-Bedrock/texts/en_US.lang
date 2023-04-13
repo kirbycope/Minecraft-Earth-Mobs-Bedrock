@@ -15,5 +15,31 @@ item.spawn_egg.entity.kirbycope:sooty_pig.name=Spawn Sooty Pig
 entity.kirbycope:spotted_pig.name=Spotted Pig
 item.spawn_egg.entity.kirbycope:spotted_pig.name=Spawn Spotted Pig
 
+entity.kirbycope:flecked_sheep.name=Flecked Sheep
+item.spawn_egg.entity.kirbycope:flecked_sheep.name=Spawn Flecked Sheep
+entity.kirbycope:fuzzy_sheep.name=Fuzzy Sheep
+item.spawn_egg.entity.kirbycope:fuzzy_sheep.name=Spawn Fuzzy Sheep
+entity.kirbycope:inky_sheep.name=Inky Sheep
+item.spawn_egg.entity.kirbycope:inky_sheep.name=Spawn Inky Sheep
+entity.kirbycope:long_nose_sheep.name=Long Nose Sheep
+item.spawn_egg.entity.kirbycope:long_nose_sheep.name=Spawn Long Nose Sheep
+entity.kirbycope:patched_sheep.name=Patched Sheep
+item.spawn_egg.entity.kirbycope:patched_sheep.name=Spawn Patched Sheep
+entity.kirbycope:rainbow_sheep.name=Rainbow Sheep
+item.spawn_egg.entity.kirbycope:rainbow_sheep.name=Spawn Rainbow Sheep
+entity.kirbycope:rocky_sheep.name=Rocky Sheep
+item.spawn_egg.entity.kirbycope:rocky_sheep.name=Spawn Rocky Sheep
+
 entity.kirbycope:furnace_golem.name=Furnace Golem
 item.spawn_egg.entity.kirbycope:furnace_golem.name=Spawn Furnace Golem
+
+entity.kirbycope:melon_golem.name=Melon Golem
+item.spawn_egg.entity.kirbycope:melon_golem.name=Spawn Melon Golem
+
+entity.kirbycope:bouldering_zombie.name=Bouldering Zombie
+item.spawn_egg.entity.kirbycope:bouldering_zombie.name=Spawn Bouldering Zombie
+entity.kirbycope:lobber_zombie.name=Lobber Zombie
+item.spawn_egg.entity.kirbycope:lobber_zombie.name=Spawn Lobber Zombie
+
+entity.kirbycope:skeleton_wolf.name=Skeleton Wolf
+item.spawn_egg.entity.kirbycope:skeleton_wolf.name=Spawn Skeleton Wolf
