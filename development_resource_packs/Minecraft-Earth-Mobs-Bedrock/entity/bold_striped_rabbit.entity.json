@@ -1,0 +1,30 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kirbycope:bold_striped_rabbit",
+      "min_engine_version": "1.8.0",
+      "materials": { "default": "rabbit" },
+      "textures": {
+        "default": "textures/entity/bold_striped_rabbit"
+      },
+      "geometry": {
+        "default": "geometry.rabbit.v1.8"
+      },
+      "animations": {
+        "move": "animation.rabbit.move",
+        "baby_transform": "animation.rabbit.baby_transform",
+        "look_at_target": "animation.common.look_at_target"
+      },
+      "animation_controllers": [
+        { "general": "controller.animation.rabbit.general" },
+        { "baby": "controller.animation.rabbit.baby" }
+      ],
+      "render_controllers": [ "controller.render.rabbit" ],
+      "spawn_egg": {
+        "texture": "spawn_egg",
+        "texture_index": 24
+      }
+    }
+  }
+}
