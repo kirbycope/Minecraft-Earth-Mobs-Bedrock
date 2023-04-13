@@ -1,0 +1,27 @@
+{
+	"format_version": 2,
+	"header": {
+		"name": "Minecraft Earth Mobs Bedrock",
+		"description": "Minecraft Earth Mobs Bedrock Behavior Pack",
+		"uuid": "764f7644-9901-4665-a6ae-3114f2417c89",
+		"version": [1, 0, 0],
+		"min_engine_version": [1, 19, 60]
+	},
+	"metadata": {
+		"authors": ["Kirbycope"]
+	},
+	"modules": [
+		{
+			"description": "Behavior",
+			"version": [1, 0, 0],
+			"uuid": "323de096-c816-418b-80fb-0fae1e61b061",
+			"type": "data"
+		}
+	],
+	"dependencies": [
+		{
+			"uuid": "1adb5f63-9a00-483b-981b-646421065fe0",
+			"version": [1, 0, 0]
+		}
+	]
+}
