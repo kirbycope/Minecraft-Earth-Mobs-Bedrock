@@ -4,7 +4,9 @@
     "description": {
       "identifier": "kirbycope:jolly_llama",
       "min_engine_version": "1.8.0",
-      "materials": { "default": "llama" },
+      "materials": {
+        "default": "llama"
+      },
       "textures": {
         "default": "textures/entity/jolly_llama"
       },
@@ -18,10 +20,16 @@
         "baby_transform": "animation.llama.baby_transform"
       },
       "animation_controllers": [
-        { "move": "controller.animation.llama.move" },
-        { "baby": "controller.animation.llama.baby" }
+        {
+          "move": "controller.animation.llama.move"
+        },
+        {
+          "baby": "controller.animation.llama.baby"
+        }
       ],
-      "render_controllers": [ "controller.render.llama" ],
+      "render_controllers": [
+        "controller.render.default"
+      ],
       "spawn_egg": {
         "texture": "spawn_egg",
         "texture_index": 38

@@ -1,13 +1,13 @@
 {
-  "format_version": "1.10.0",
-  "minecraft:client_entity": {
-    "description": {
-      "identifier": "kirbycope:furnace_golem",
-      "spawn_egg": {
-        "base_color": "#dbcdc2",
-        "overlay_color": "#74a332"
-      },
-      "materials": {
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "kirbycope:furnace_golem",
+			"spawn_egg": {
+				"base_color": "#dbcdc2",
+				"overlay_color": "#74a332"
+			},
+			"materials": {
 				"default": "iron_golem"
 			},
 			"textures": {
@@ -16,7 +16,7 @@
 			"geometry": {
 				"default": "geometry.irongolem"
 			},
-      "animations": {
+			"animations": {
 				"walk": "animation.iron_golem.walk",
 				"move": "animation.iron_golem.move",
 				"walk_to_target": "animation.iron_golem.walk_to_target",
@@ -28,10 +28,18 @@
 				"arm_controller": "controller.animation.iron_golem.arm_movement"
 			},
 			"scripts": {
-				"pre_animation": ["variable.modified_tcos0=Math.clamp(((Math.cos(query.modified_distance_moved*13.5)*Math.min(query.modified_move_speed,0.6)/variable.gliding_speed_value)*25.0),-12.5,12.5);"],
-				"animate": ["look_at_target", "move_controller", "arm_controller"]
+				"pre_animation": [
+					"variable.modified_tcos0=Math.clamp(((Math.cos(query.modified_distance_moved*13.5)*Math.min(query.modified_move_speed,0.6)/variable.gliding_speed_value)*25.0),-12.5,12.5);"
+				],
+				"animate": [
+					"look_at_target",
+					"move_controller",
+					"arm_controller"
+				]
 			},
-      "render_controllers": ["controller.render.default"]
-    }
-  }
+			"render_controllers": [
+				"controller.render.default"
+			]
+		}
+	}
 }
