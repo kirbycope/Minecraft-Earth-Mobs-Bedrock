@@ -53,16 +53,61 @@ item.spawn_egg.entity.kirbycope:umbra_cow.name=Spawn Umbra Cow
 entity.kirbycope:wooly_cow.name=Wooly Cow
 item.spawn_egg.entity.kirbycope:wooly_cow.name=Spawn Wooly Cow
 
+entity.kirbycope:amber_chicken.name=Amber Chicken
+item.spawn_egg.entity.kirbycope:amber_chicken.name=Spawn Amber Chicken
+entity.kirbycope:bronzed_chicken.name=Bronzed Chicken
+item.spawn_egg.entity.kirbycope:bronzed_chicken.name=Spawn Bronzed Chicken
+entity.kirbycope:cluckshroom.name=Cluckshroom
+item.spawn_egg.entity.kirbycope:cluckshroom.name=Spawn Cluckshroom
+entity.kirbycope:fancy_chicken.name=Fancy Chicken
+item.spawn_egg.entity.kirbycope:fancy_chicken.name=Spawn Fancy Chicken
+entity.kirbycope:gold_crested_chicken.name=Gold Crested Chicken
+item.spawn_egg.entity.kirbycope:gold_crested_chicken.name=Spawn Gold Crested Chicken
+entity.kirbycope:midnight_chicken.name=Midnight Chicken
+item.spawn_egg.entity.kirbycope:midnight_chicken.name=Spawn Midnight Chicken
+entity.kirbycope:skewbald_chicken.name=Skewbald Chicken
+item.spawn_egg.entity.kirbycope:skewbald_chicken.name=Spawn Skewbald Chicken
+entity.kirbycope:stormy_chicken.name=Stormy Chicken
+item.spawn_egg.entity.kirbycope:stormy_chicken.name=Spawn Stormy Chicken
+
+entity.kirbycope:bold_striped_rabbit.name=Bold Striped Rabbit
+item.spawn_egg.entity.kirbycope:bold_striped_rabbit.name=Spawn Bold Striped Rabbit
+entity.kirbycope:desert_rabbit.name=Desert Rabbit
+item.spawn_egg.entity.kirbycope:desert_rabbit.name=Spawn Desert Rabbit
+entity.kirbycope:freckled_rabbit.name=Freckled Rabbit
+item.spawn_egg.entity.kirbycope:freckled_rabbit.name=Spawn Freckled Rabbit
+entity.kirbycope:harelequin_rabbit.name=Harelequin Rabbit
+item.spawn_egg.entity.kirbycope:harelequin_rabbit.name=Spawn Harelequin Rabbit
+entity.kirbycope:jumbo_rabbit.name=Jumbo Rabbit
+item.spawn_egg.entity.kirbycope:jumbo_rabbit.name=Spawn Jumbo Rabbit
+entity.kirbycope:muddy_foot_rabbit.name=Muddy Foot Rabbit
+item.spawn_egg.entity.kirbycope:muddy_foot_rabbit.name=Spawn Muddy Foot Rabbit
+entity.kirbycope:vested_rabbit.name=Vested Rabbit
+item.spawn_egg.entity.kirbycope:vested_rabbit.name=Spawn Vested Rabbit
+
+entity.kirbycope:jolly_llama.name=Jolly Llama
+item.spawn_egg.entity.kirbycope:jolly_llama.name=Spawn Jolly Llama
+
 entity.kirbycope:furnace_golem.name=Furnace Golem
 item.spawn_egg.entity.kirbycope:furnace_golem.name=Spawn Furnace Golem
 
 entity.kirbycope:melon_golem.name=Melon Golem
 item.spawn_egg.entity.kirbycope:melon_golem.name=Spawn Melon Golem
 
+entity.kirbycope:tropical_slime.name=Tropical Slime
+item.spawn_egg.entity.kirbycope:tropical_slime.name=Spawn Tropical Slime
+
+entity.kirbycope:bone_spider.name=Bone Spider
+item.spawn_egg.entity.kirbycope:bone_spider.name=Spawn Bone Spider
+
 entity.kirbycope:bouldering_zombie.name=Bouldering Zombie
 item.spawn_egg.entity.kirbycope:bouldering_zombie.name=Spawn Bouldering Zombie
+
 entity.kirbycope:lobber_zombie.name=Lobber Zombie
 item.spawn_egg.entity.kirbycope:lobber_zombie.name=Spawn Lobber Zombie
 
 entity.kirbycope:skeleton_wolf.name=Skeleton Wolf
 item.spawn_egg.entity.kirbycope:skeleton_wolf.name=Spawn Skeleton Wolf
+
+entity.kirbycope:viller_witch.name=Viller Witch
+item.spawn_egg.entity.kirbycope:viller_witch.name=Spawn Viller Witch
