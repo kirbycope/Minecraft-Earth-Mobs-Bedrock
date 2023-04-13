@@ -30,6 +30,29 @@ item.spawn_egg.entity.kirbycope:rainbow_sheep.name=Spawn Rainbow Sheep
 entity.kirbycope:rocky_sheep.name=Rocky Sheep
 item.spawn_egg.entity.kirbycope:rocky_sheep.name=Spawn Rocky Sheep
 
+entity.kirbycope:albino_cow.name=Albino Cow
+item.spawn_egg.entity.kirbycope:albino_cow.name=Spawn Albino Cow
+entity.kirbycope:ashen_cow.name=Ashen Cow
+item.spawn_egg.entity.kirbycope:ashen_cow.name=Spawn Ashen Cow
+entity.kirbycope:cookie_cow.name=Cookie Cow
+item.spawn_egg.entity.kirbycope:cookie_cow.name=Spawn Cookie Cow
+entity.kirbycope:cream_cow.name=Cream Cow
+item.spawn_egg.entity.kirbycope:cream_cow.name=Spawn Cream Cow
+entity.kirbycope:dairy_cow.name=Dairy Cow
+item.spawn_egg.entity.kirbycope:dairy_cow.name=Spawn Dairy Cow
+entity.kirbycope:moobloom.name=Moobloom
+item.spawn_egg.entity.kirbycope:moobloom.name=Spawn Moobloom
+entity.kirbycope:moolip.name=Moolip
+item.spawn_egg.entity.kirbycope:moolip.name=Spawn Moolip
+entity.kirbycope:pinto_cow.name=Pinto Cow
+item.spawn_egg.entity.kirbycope:pinto_cow.name=Spawn Pinto Cow
+entity.kirbycope:sunset_cow.name=Sunset Cow
+item.spawn_egg.entity.kirbycope:sunset_cow.name=Spawn Sunset Cow
+entity.kirbycope:umbra_cow.name=Umbra Cow
+item.spawn_egg.entity.kirbycope:umbra_cow.name=Spawn Umbra Cow
+entity.kirbycope:wooly_cow.name=Wooly Cow
+item.spawn_egg.entity.kirbycope:wooly_cow.name=Spawn Wooly Cow
+
 entity.kirbycope:furnace_golem.name=Furnace Golem
 item.spawn_egg.entity.kirbycope:furnace_golem.name=Spawn Furnace Golem
 
