@@ -112,5 +112,5 @@ item.spawn_egg.entity.kirbycope:lobber_zombie.name=Spawn Lobber Zombie
 entity.kirbycope:skeleton_wolf.name=Skeleton Wolf
 item.spawn_egg.entity.kirbycope:skeleton_wolf.name=Spawn Skeleton Wolf
 
-entity.kirbycope:viller_witch.name=Viller Witch
-item.spawn_egg.entity.kirbycope:viller_witch.name=Spawn Viller Witch
+entity.kirbycope:viler_witch.name=Viler Witch
+item.spawn_egg.entity.kirbycope:viler_witch.name=Spawn Viler Witch
