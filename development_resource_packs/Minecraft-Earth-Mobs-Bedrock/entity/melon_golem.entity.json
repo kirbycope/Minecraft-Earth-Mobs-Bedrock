@@ -1,37 +1,36 @@
 {
-  "format_version": "1.8.0",
-  "minecraft:client_entity": {
-    "description": {
-      "identifier": "kirbycope:melon_golem",
-      "min_engine_version": "1.8.0",
-      "spawn_egg": {
-        "base_color": "#d9f2f2",
-        "overlay_color": "#81a4a4"
-      },
-      "materials": {
-        "default": "entity_alphatest"
-      },
-      "textures": {
-        "default": "textures/entity/melon_golem"
-      },
-      "geometry": {
-        "default": "geometry.snowgolem"
-      },
-      "animations": {
-        "move": "animation.snowgolem.move",
-        "move_controller": "controller.animation.snowgolem.move.v1.8"
-      },
-      "scripts": {
-        "pre_animation": [
-          "variable.modified_tcos0=Math.clamp(((Math.cos(query.modified_distance_moved*13.5)*Math.min(query.modified_move_speed,0.6)/variable.gliding_speed_value)*25.0),-12.5,12.5);"
-        ],
-        "animate": [
-          "move_controller"
-        ]
-      },
-      "render_controllers": [
-        "controller.render.default"
-      ]
-    }
-  }
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "kirbycope:melon_golem",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"default": "textures/entity/melon_golem"
+			},
+			"geometry": {
+				"default": "geometry.melon_golem"
+			},
+			"animations": {
+				"move": "animation.melon_golem.move",
+				"sheared": "animation.melon_golem.sheared",
+				"look_at_target": "animation.common.look_at_target",
+				"move_controller": "controller.animation.snowgolem.move.v1.8"
+			},
+			"scripts": {
+				"animate": [
+					"move_controller",
+					{
+						"sheared": "query.is_sheared"
+					}
+				]
+			},
+			"render_controllers": ["controller.render.default"],
+			"spawn_egg": {
+				"base_color": "#b01c9e",
+				"overlay_color": "#66317d"
+			}
+		}
+	}
 }
