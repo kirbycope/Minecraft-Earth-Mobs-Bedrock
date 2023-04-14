@@ -51,7 +51,7 @@ Complete list of mobs sourced from [Minecraft Earth:Mob > List of Mobs](https://
 |	Jumbo Rabbit	|	[Source](	https://minecraft.fandom.com/wiki/Minecraft_Earth:Jumbo_Rabbit?file=Jumbo_Rabbit_%2528texture%2529.png	)	|	rabbit	|	custom rabbit	|		|
 |	Muddy Foot Rabbit	|	[Source](	https://minecraft.fandom.com/wiki/Minecraft_Earth:Muddy_Foot_Rabbit?file=Muddy_Foot_Rabbit_%2528texture%2529.png	)	|	rabbit	|	rabbit	|		|
 |	Vested Rabbit	|	[Source](	https://www.planetminecraft.com/mob-skin/vested-rabbit-minecraft-earth/	)	|	rabbit	|	rabbit	|		|
-|	Glow Squid	|		n/a	)	|	n/a	|	n/a	|	n/a	|
+|	Glow Squid	|		n/a		|	n/a	|	n/a	|	n/a	|
 |	Jolly Llama	|	[Source](	https://www.planetminecraft.com/resources/?keywords=jolly+llama	)	|	llama	|	llama	|		|
 |	Mob of Me	|		n/a		|	n/a	|	n/a	|	n/a	|
 |	Ocelot	|		n/a		|	n/a	|	n/a	|	n/a	|
