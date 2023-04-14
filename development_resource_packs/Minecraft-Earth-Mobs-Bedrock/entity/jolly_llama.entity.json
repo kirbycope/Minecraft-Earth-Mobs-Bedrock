@@ -8,7 +8,11 @@
         "default": "llama"
       },
       "textures": {
-        "default": "textures/entity/jolly_llama"
+        "creamy": "textures/entity/jolly_llama",
+        "white": "textures/entity/jolly_llama",
+        "brown": "textures/entity/jolly_llama",
+        "gray": "textures/entity/jolly_llama",
+        "decor_none": "textures/entity/jolly_llama"
       },
       "geometry": {
         "default": "geometry.llama.v1.8"
@@ -28,7 +32,7 @@
         }
       ],
       "render_controllers": [
-        "controller.render.default"
+        "controller.render.llama"
       ],
       "spawn_egg": {
         "texture": "spawn_egg",
