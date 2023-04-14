@@ -42,7 +42,7 @@
           "table": "loot_tables/entities/rabbit.json"
         },
         "minecraft:scale": {
-          "value": 0.6
+          "value": 1.2
         },
         "minecraft:behavior.breed": {
           "priority": 2,
