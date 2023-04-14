@@ -88,6 +88,9 @@ item.spawn_egg.entity.kirbycope:vested_rabbit.name=Spawn Vested Rabbit
 entity.kirbycope:jolly_llama.name=Jolly Llama
 item.spawn_egg.entity.kirbycope:jolly_llama.name=Spawn Jolly Llama
 
+entity.kirbycope:dyed_cat.name=Peanut Butter
+item.spawn_egg.entity.kirbycope:dyed_cat.name=Spawn Peanut Butter
+
 entity.kirbycope:furnace_golem.name=Furnace Golem
 item.spawn_egg.entity.kirbycope:furnace_golem.name=Spawn Furnace Golem
 
