@@ -1,7 +1,12 @@
 # Minecraft-Earth-Mobs-Bedrock
 All the mobs from Minecraft Earth in Minecraft Bedrock Edition.
 
-## Mobs
+## Installation
+1. Download the [mcaddon](https://github.com/kirbycope/Minecraft-Earth-Mobs-Bedrock/raw/main/Minecraft-Earth-Mobs-Bedrock.mcaddon)
+1. Double-click the mcaddon file
+1. Load the Resource and Behaviour packs for your world/save
+
+### Mobs
 Complete list of mobs sourced from [Minecraft Earth:Mob > List of Mobs](https://minecraft.fandom.com/wiki/Minecraft_Earth:Mob#List_of_mobs).
 
 |	Mob	|	Skin			|	Model	|	Behavior	|	Spawn Rules	|
