@@ -7,7 +7,31 @@
       "spawn_egg": {
         "base_color": "#d9f2f2",
         "overlay_color": "#81a4a4"
-      }
+      },
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/melon_golem"
+      },
+      "geometry": {
+        "default": "geometry.snowgolem"
+      },
+      "animations": {
+        "move": "animation.snowgolem.move",
+        "move_controller": "controller.animation.snowgolem.move.v1.8"
+      },
+      "scripts": {
+        "pre_animation": [
+          "variable.modified_tcos0=Math.clamp(((Math.cos(query.modified_distance_moved*13.5)*Math.min(query.modified_move_speed,0.6)/variable.gliding_speed_value)*25.0),-12.5,12.5);"
+        ],
+        "animate": [
+          "move_controller"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ]
     }
   }
 }
