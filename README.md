@@ -22,7 +22,7 @@ Complete list of mobs sourced from [Minecraft Earth:Mob > List of Mobs](https://
 |	Patched Sheep	|	[Source](	https://www.planetminecraft.com/mob-skin/patched-sheep-minecraft-earth/	)	|	sheep	|	sheep	|		|
 |	Rainbow Sheep	|	[Source](	https://www.planetminecraft.com/mob-skin/rainbow-sheep-minecraft-earth/	)	|	sheep	|	sheep	|		|
 |	Rocky Sheep	|	[Source](	https://www.planetminecraft.com/mob-skin/rocky-sheep-minecraft-earth-4773374/	)	|	sheep	|	sheep	|		|
-|	White Sheep	|		n/a	)	|	n/a	|	n/a	|	n/a	|
+|	White Sheep	|		n/a		|	n/a	|	n/a	|	n/a	|
 |	Albino Cow	|	[Source](	https://www.planetminecraft.com/mob-skin/albino-cow-minecraft-earth-4669421/	)	|	cow	|	cow	|		|
 |	Ashen Cow	|	[Source](	https://www.planetminecraft.com/mob-skin/ashen-cow-minecraft-earth-4669426/	)	|	cow	|	cow	|		|
 |	Cookie Cow	|	[Source](	https://www.planetminecraft.com/mob-skin/cookie-cow/	)	|	cow	|	cow	|		|
