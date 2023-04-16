@@ -1,3 +1,5 @@
+![Minecraft-Earth-Mobs-Bedrock](/Minecraft-Earth-Mobs-Bedrock.png)
+
 # Minecraft-Earth-Mobs-Bedrock
 All the mobs from Minecraft Earth in Minecraft Bedrock Edition.
 
