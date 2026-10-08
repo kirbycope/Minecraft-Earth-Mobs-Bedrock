@@ -84,3 +84,8 @@ Complete list of mobs sourced from [Minecraft Earth:Mob > List of Mobs](https://
 |	Viler Witch	|	[Source](	https://minecraft.fandom.com/wiki/Minecraft_Earth:Viler_Witch?file=Viler_Witch_%2528texture%2529.png	)	|	witch	|	witch	|		|
 |	Witch	|		n/a		|	n/a	|	n/a	|	n/a	|
 |	Zombie	|		n/a		|	n/a	|	n/a	|	n/a	|
+
+## Releasing
+Pushing a tag that starts with `v` (for example `git tag v1.0.0 && git push origin v1.0.0`) runs the Release workflow in `.github/workflows/release.yml`, which builds the add-on and attaches `Minecraft-Earth-Mobs-Bedrock.mcaddon` to a GitHub Release.
+
+To build it locally, run `python tools/build_addon.py`. It writes `build/Minecraft-Earth-Mobs-Bedrock.mcaddon`, which git ignores, and leaves the committed `Minecraft-Earth-Mobs-Bedrock.mcaddon` as it is.
