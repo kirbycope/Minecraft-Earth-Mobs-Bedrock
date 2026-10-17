@@ -1,0 +1,96 @@
+{
+	"format_version": "1.10.0",
+	"animations": {
+		"animation.furnace_golem.fire": {
+			"loop": true,
+			"animation_length": 4.0,
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "flame",
+						"locator": "furnace_mouth"
+					},
+					{
+						"effect": "smoke",
+						"locator": "furnace_mouth"
+					}
+				],
+				"0.4": [
+					{
+						"effect": "flame",
+						"locator": "furnace_mouth"
+					}
+				],
+				"0.8": [
+					{
+						"effect": "flame",
+						"locator": "furnace_mouth"
+					},
+					{
+						"effect": "smoke",
+						"locator": "furnace_mouth"
+					}
+				],
+				"1.2": [
+					{
+						"effect": "flame",
+						"locator": "furnace_mouth"
+					}
+				],
+				"1.6": [
+					{
+						"effect": "flame",
+						"locator": "furnace_mouth"
+					},
+					{
+						"effect": "smoke",
+						"locator": "furnace_mouth"
+					}
+				],
+				"2.0": [
+					{
+						"effect": "flame",
+						"locator": "furnace_mouth"
+					}
+				],
+				"2.4": [
+					{
+						"effect": "flame",
+						"locator": "furnace_mouth"
+					},
+					{
+						"effect": "smoke",
+						"locator": "furnace_mouth"
+					}
+				],
+				"2.8": [
+					{
+						"effect": "flame",
+						"locator": "furnace_mouth"
+					}
+				],
+				"3.2": [
+					{
+						"effect": "flame",
+						"locator": "furnace_mouth"
+					},
+					{
+						"effect": "smoke",
+						"locator": "furnace_mouth"
+					}
+				],
+				"3.6": [
+					{
+						"effect": "flame",
+						"locator": "furnace_mouth"
+					}
+				]
+			},
+			"sound_effects": {
+				"0.0": {
+					"effect": "crackle"
+				}
+			}
+		}
+	}
+}

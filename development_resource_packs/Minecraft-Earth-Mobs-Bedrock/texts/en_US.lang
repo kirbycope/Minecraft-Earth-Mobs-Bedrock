@@ -114,3 +114,13 @@ item.spawn_egg.entity.kirbycope:skeleton_wolf.name=Spawn Skeleton Wolf
 
 entity.kirbycope:viler_witch.name=Viler Witch
 item.spawn_egg.entity.kirbycope:viler_witch.name=Spawn Viler Witch
+item.kirbycope:fancy_feather=Fancy Feather
+item.kirbycope:horn=Horn
+tile.kirbycope:buttercup.name=Buttercup
+tile.kirbycope:pink_daisy.name=Pink Daisy
+tile.kirbycope:rainbow_wool.name=Rainbow Wool
+entity.kirbycope:horned_sheep.name=Horned Sheep
+item.spawn_egg.entity.kirbycope:horned_sheep.name=Spawn Horned Sheep
+entity.kirbycope:melon_seed.name=Melon Seed
+entity.kirbycope:bone_shard.name=Bone Shard
+entity.kirbycope:rotten_flesh.name=Rotten Flesh

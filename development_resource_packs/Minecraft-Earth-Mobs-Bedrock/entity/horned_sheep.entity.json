@@ -1,0 +1,71 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kirbycope:horned_sheep",
+      "materials": {
+        "default": "sheep"
+      },
+      "textures": {
+        "default": "textures/entity/earth/sheep/horned_sheep/horned_sheep"
+      },
+      "geometry": {
+        "default": "geometry.kirbycope.horned_sheep"
+      },
+      "animations": {
+        "setup": "animation.kirbycope.sheep.setup",
+        "grazing": "animation.kirbycope.sheep.grazing",
+        "walk": "animation.kirbycope.quadruped.walk",
+        "look_at_target": "animation.kirbycope.common.look_at_target",
+        "baby_transform": "animation.kirbycope.sheep.baby_transform",
+        "prep_transition": "animation.kirbycope.horned_sheep.prep_transition",
+        "prep_ram": "animation.kirbycope.horned_sheep.prep_to_ram",
+        "charge": "animation.kirbycope.horned_sheep.charge",
+        "ramming": "animation.kirbycope.horned_sheep.ramming",
+        "move": "controller.animation.kirbycope.horned_sheep.move",
+        "blink": "controller.animation.kirbycope.horned_sheep.blink"
+      },
+      "particle_effects": {
+        "hoof_scuff": "kirbycope:horned_sheep_hoof_scuff"
+      },
+      "sound_effects": {
+        "prep": "mob.horned_sheep.prep",
+        "prep.transition": "mob.horned_sheep.prep.transition",
+        "ram": "mob.horned_sheep.ram",
+        "charge": "mob.horned_sheep.charge",
+        "impact": "mob.horned_sheep.impact"
+      },
+      "scripts": {
+        "animate": [
+          "setup",
+          "look_at_target",
+          "move",
+          {
+            "baby_transform": "query.is_baby"
+          },
+          "blink"
+        ],
+        "initialize": [
+          "variable.is_blinking = 0;",
+          "variable.return_from_blink = 0;",
+          "variable.last_blink_time = 0;",
+          "variable.prepare_ram = 0;",
+          "variable.ramming = 0;",
+          "variable.grazing = 0;"
+        ],
+        "pre_animation": [
+          "variable.prepare_ram = query.property('kirbycope:anim') == 'prep';",
+          "variable.ramming = query.property('kirbycope:anim') == 'ram';",
+          "variable.grazing = query.is_grazing;"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.kirbycope.horned_sheep"
+      ],
+      "spawn_egg": {
+        "base_color": "#d8cfc0",
+        "overlay_color": "#6b4b33"
+      }
+    }
+  }
+}

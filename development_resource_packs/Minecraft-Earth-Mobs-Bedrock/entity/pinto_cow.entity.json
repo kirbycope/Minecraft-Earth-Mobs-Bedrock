@@ -3,29 +3,44 @@
   "minecraft:client_entity": {
     "description": {
       "identifier": "kirbycope:pinto_cow",
-      "min_engine_version": "1.8.0",
-      "materials": { "default": "cow" },
+      "materials": {
+        "default": "entity"
+      },
       "textures": {
-        "default": "textures/entity/pinto_cow"
+        "default": "textures/entity/earth/cow/pinto_cow/pinto_cow"
       },
       "geometry": {
-        "default": "geometry.cow.v1.8"
+        "default": "geometry.kirbycope.cow_v2"
       },
       "animations": {
-        "setup": "animation.cow.setup",
-        "walk": "animation.quadruped.walk",
-        "look_at_target": "animation.common.look_at_target",
-        "baby_transform": "animation.cow.baby_transform"
+        "walk": "animation.kirbycope.quadruped.walk",
+        "look_at_target": "animation.kirbycope.shared.look_at_target",
+        "baby_transform": "animation.kirbycope.cow.baby_transform",
+        "blink": "controller.animation.kirbycope.shared.mob_blink"
       },
       "scripts": {
         "animate": [
-          "setup",
-          { "walk": "query.modified_move_speed" },
+          {
+            "walk": "query.modified_move_speed"
+          },
           "look_at_target",
-          { "baby_transform": "query.is_baby" }
+          {
+            "baby_transform": "query.is_baby"
+          },
+          "blink"
+        ],
+        "initialize": [
+          "variable.is_blinking = 0;",
+          "variable.return_from_blink = 0;",
+          "variable.last_blink_time = 0;",
+          "variable.max_blink_time = 0.3;",
+          "variable.min_blink_rest = 3;",
+          "variable.max_blink_rest = 40;"
         ]
       },
-      "render_controllers": [ "controller.render.cow" ],
+      "render_controllers": [
+        "controller.render.kirbycope.genoa_cow"
+      ],
       "spawn_egg": {
         "texture": "spawn_egg",
         "texture_index": 1

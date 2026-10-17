@@ -1,0 +1,49 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "kirbycope:bone_shard",
+      "is_spawnable": false,
+      "is_summonable": true
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "projectile",
+          "bone_shard"
+        ]
+      },
+      "minecraft:collision_box": {
+        "width": 0.25,
+        "height": 0.25
+      },
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:projectile": {
+        "anchor": "eye_height",
+        "offset": [
+          0,
+          -0.1,
+          0
+        ],
+        "gravity": 0.02,
+        "power": 1.6,
+        "angle_offset": 0.0,
+        "on_hit": {
+          "impact_damage": {
+            "damage": {
+              "range_min": 2,
+              "range_max": 6
+            },
+            "knockback": true,
+            "destroy_on_hit": true
+          },
+          "remove_on_hit": {}
+        }
+      }
+    }
+  }
+}

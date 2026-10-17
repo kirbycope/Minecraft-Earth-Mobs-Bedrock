@@ -1,0 +1,33 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kirbycope:rotten_flesh",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/earth/zombie/lobber/rotten_flesh_projectile"
+      },
+      "geometry": {
+        "default": "geometry.kirbycope.rotten_flesh_projectile"
+      },
+      "animations": {
+        "move": "animation.kirbycope.rotten_flesh_projectile.move"
+      },
+      "scripts": {
+        "animate": [
+          "move"
+        ],
+        "initialize": [
+          "variable.rotationx = 0;",
+          "variable.rotationy = 0;",
+          "variable.rotationz = 0;"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.kirbycope.rotten_flesh_projectile"
+      ]
+    }
+  }
+}

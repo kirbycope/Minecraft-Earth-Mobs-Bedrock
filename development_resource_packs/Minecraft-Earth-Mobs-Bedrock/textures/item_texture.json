@@ -1,0 +1,12 @@
+{
+  "resource_pack_name": "kirbycope",
+  "texture_name": "atlas.items",
+  "texture_data": {
+    "kirbycope_fancy_feather": {
+      "textures": "textures/items/fancy_feather"
+    },
+    "kirbycope_horn": {
+      "textures": "textures/items/horn"
+    }
+  }
+}

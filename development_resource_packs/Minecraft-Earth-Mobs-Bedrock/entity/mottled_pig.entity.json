@@ -3,29 +3,41 @@
   "minecraft:client_entity": {
     "description": {
       "identifier": "kirbycope:mottled_pig",
-      "min_engine_version": "1.8.0",
-      "materials": { "default": "pig" },
+      "materials": {
+        "default": "entity"
+      },
       "textures": {
-        "default": "textures/entity/mottled_pig"
+        "default": "textures/entity/earth/pig/mottled_pig/pig_mottled",
+        "saddled": "textures/entity/earth/pig/mottled_pig/pig_mottled"
       },
       "geometry": {
-        "default": "geometry.pig.v1.8"
+        "default": "geometry.kirbycope.pig"
       },
       "animations": {
-        "setup": "animation.pig.setup",
-        "walk": "animation.quadruped.walk",
-        "look_at_target": "animation.common.look_at_target",
-        "baby_transform": "animation.pig.baby_transform"
+        "walk": "animation.kirbycope.quadruped.walk",
+        "look_at_target": "animation.kirbycope.shared.look_at_target",
+        "blink": "controller.animation.kirbycope.shared.mob_blink"
       },
       "scripts": {
         "animate": [
-          "setup",
-          { "walk": "query.modified_move_speed" },
+          {
+            "walk": "query.modified_move_speed"
+          },
           "look_at_target",
-          { "baby_transform": "query.is_baby" }
+          "blink"
+        ],
+        "initialize": [
+          "variable.is_blinking = 0;",
+          "variable.return_from_blink = 0;",
+          "variable.last_blink_time = 0;",
+          "variable.max_blink_time = 0.3;",
+          "variable.min_blink_rest = 3;",
+          "variable.max_blink_rest = 40;"
         ]
       },
-      "render_controllers": [ "controller.render.pig" ],
+      "render_controllers": [
+        "controller.render.kirbycope.genoa_pig"
+      ],
       "spawn_egg": {
         "texture": "spawn_egg",
         "texture_index": 2

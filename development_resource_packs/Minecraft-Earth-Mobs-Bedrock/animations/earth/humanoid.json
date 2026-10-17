@@ -1,0 +1,13 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.kirbycope.humanoid.big_head": {
+      "bones": {
+        "head": {
+          "scale": 1.399999976158142
+        }
+      },
+      "loop": true
+    }
+  }
+}

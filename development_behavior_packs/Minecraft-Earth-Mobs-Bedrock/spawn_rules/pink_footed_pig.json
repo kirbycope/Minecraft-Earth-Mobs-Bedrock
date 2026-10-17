@@ -1,0 +1,48 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:spawn_rules": {
+    "description": {
+      "identifier": "kirbycope:pink_footed_pig",
+      "population_control": "animal"
+    },
+    "conditions": [
+      {
+        "minecraft:spawns_on_surface": {},
+        "minecraft:brightness_filter": {
+          "min": 7,
+          "max": 15,
+          "adjust_for_weather": false
+        },
+        "minecraft:weight": {
+          "default": 4
+        },
+        "minecraft:herd": {
+          "min_size": 1,
+          "max_size": 3
+        },
+        "minecraft:biome_filter": {
+          "all_of": [
+            {
+              "test": "has_biome_tag",
+              "operator": "==",
+              "value": "forest"
+            },
+            {
+              "test": "has_biome_tag",
+              "operator": "!=",
+              "value": "roofed"
+            },
+            {
+              "test": "has_biome_tag",
+              "operator": "!=",
+              "value": "flower_forest"
+            }
+          ]
+        },
+        "minecraft:spawns_on_block_filter": [
+          "minecraft:grass_block"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kirbycope:bone_shard",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/earth/spider/bone_spider/bone_shard"
+      },
+      "geometry": {
+        "default": "geometry.kirbycope.bone_spider.bone_shard"
+      },
+      "animations": {
+        "move": "animation.kirbycope.bone_shard.move"
+      },
+      "scripts": {
+        "animate": [
+          "move"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.kirbycope.bone_shard"
+      ]
+    }
+  }
+}

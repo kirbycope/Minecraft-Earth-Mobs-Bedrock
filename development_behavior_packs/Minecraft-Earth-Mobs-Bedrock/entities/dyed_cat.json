@@ -1,29 +1,47 @@
 {
-  "format_version": "1.18.10",
+  "format_version": "1.26.50",
   "minecraft:entity": {
     "description": {
       "identifier": "kirbycope:dyed_cat",
+      "spawn_category": "creature",
       "is_spawnable": true,
       "is_summonable": true,
-      "is_experimental": false
+      "properties": {
+        "kirbycope:sound_variant": {
+          "type": "enum",
+          "values": [
+            "default",
+            "royal"
+          ],
+          "default": "default",
+          "client_sync": true
+        }
+      }
     },
     "component_groups": {
       "minecraft:cat_baby": {
-        "minecraft:is_baby": {
-        },
+        "minecraft:is_baby": {},
         "minecraft:scale": {
           "value": 0.4
         },
         "minecraft:ageable": {
           "duration": 1200,
-          "feed_items": [ "fish", "salmon" ],
+          "feed_items": [
+            "fish",
+            "salmon"
+          ],
+          "pause_growth_items": [
+            "golden_dandelion"
+          ],
+          "reset_growth_items": [
+            "golden_dandelion"
+          ],
           "grow_up": {
             "event": "minecraft:ageable_grow_up",
             "target": "self"
           }
         }
       },
-
       "minecraft:cat_adult": {
         "minecraft:experience_reward": {
           "on_bred": "Math.Random(1,7)",
@@ -35,23 +53,24 @@
         "minecraft:scale": {
           "value": 0.8
         },
-        "minecraft:behavior.breed": {
-          "priority": 3,
-          "speed_multiplier": 1.0
+        "minecraft:leashable_to": {
+          "unleash_on_removal": false
         },
         "minecraft:breedable": {
           "require_tame": true,
           "require_full_health": true,
           "allow_sitting": true,
           "breeds_with": {
-            "mate_type": "minecraft:dyed_cat",
-            "baby_type": "minecraft:dyed_cat",
-            "breed_event": {
-              "event": "minecraft:entity_born",
-              "target": "baby"
-            }
+            "kirbycope:dyed_cat": {}
           },
-          "breed_items": [ "fish", "salmon" ]
+          "breed_items": [
+            "fish",
+            "salmon"
+          ]
+        },
+        "minecraft:behavior.breed": {
+          "priority": 3,
+          "speed_multiplier": 1.0
         }
       },
       "minecraft:cat_wild": {
@@ -61,7 +80,10 @@
         },
         "minecraft:tameable": {
           "probability": 0.33,
-          "tame_items": [ "fish", "salmon" ],
+          "tame_items": [
+            "fish",
+            "salmon"
+          ],
           "tame_event": {
             "event": "minecraft:on_tame",
             "target": "self"
@@ -70,10 +92,14 @@
         "minecraft:rideable": {
           "seat_count": 1,
           "family_types": [
-            "zombie"
+            "baby_undead"
           ],
           "seats": {
-            "position": [ 0.0, 0.35, 0.0 ]
+            "position": [
+              0.0,
+              0.35,
+              0.0
+            ]
           }
         },
         "minecraft:behavior.nearest_attackable_target": {
@@ -114,6 +140,11 @@
           "speed_multiplier": 0.5,
           "within_radius": 16,
           "can_get_scared": true,
+          "tempt_sound": "tempt",
+          "sound_interval": [
+            0,
+            100
+          ],
           "items": [
             "fish",
             "salmon"
@@ -139,8 +170,7 @@
         }
       },
       "minecraft:cat_tame": {
-        "minecraft:is_tamed": {
-        },
+        "minecraft:is_tamed": {},
         "minecraft:health": {
           "value": 20,
           "max": 20
@@ -148,7 +178,45 @@
         "minecraft:color": {
           "value": 14
         },
-        "minecraft:sittable": {
+        "minecraft:sittable": {},
+        "minecraft:is_dyeable": {
+          "interact_text": "action.interact.dye"
+        },
+        "minecraft:on_wake_with_owner": {
+          "event": "minecraft:pet_slept_with_owner",
+          "target": "self"
+        },
+        "minecraft:behavior.teleport_to_owner": {
+          "priority": 0,
+          "filters": {
+            "all_of": [
+              {
+                "test": "owner_distance",
+                "operator": ">",
+                "value": 12
+              },
+              {
+                "test": "is_panicking"
+              }
+            ]
+          }
+        },
+        "minecraft:behavior.pet_sleep_with_owner": {
+          "priority": 2,
+          "speed_multiplier": 1.2,
+          "search_height": 10,
+          "goal_radius": 1.0
+        },
+        "minecraft:behavior.stay_while_sitting": {
+          "priority": 3
+        },
+        "minecraft:behavior.follow_owner": {
+          "priority": 4,
+          "speed_multiplier": 1.0,
+          "start_distance": 10,
+          "stop_distance": 2,
+          "post_teleport_distance": -1,
+          "ignore_vibration": true
         },
         "minecraft:behavior.tempt": {
           "priority": 5,
@@ -159,32 +227,9 @@
             "salmon"
           ]
         },
-        "minecraft:is_dyeable": {
-          "interact_text": "action.interact.dye"
-        },
-        "minecraft:behavior.follow_owner": {
-          "priority": 4,
-          "speed_multiplier": 1.0,
-          "start_distance": 10,
-          "stop_distance": 2
-        },
-        "minecraft:behavior.stay_while_sitting": {
-          "priority": 3
-        },
         "minecraft:behavior.ocelot_sit_on_block": {
           "priority": 7,
           "speed_multiplier": 1.0
-        },
-        "minecraft:behavior.pet_sleep_with_owner": {
-          "priority": 2,
-          "speed_multiplier": 1.2,
-          "search_radius": 10,
-          "search_height": 10,
-          "goal_radius": 1.0
-        },
-        "minecraft:on_wake_with_owner": {
-          "event": "minecraft:pet_slept_with_owner",
-          "target": "self"
         }
       },
       "minecraft:cat_gift_for_owner": {
@@ -196,17 +241,30 @@
           "offering_distance": 5.0,
           "minimum_teleport_distance": 2.0,
           "max_head_look_at_height": 10.0,
-          "target_range": [ 5.0, 5.0, 5.0 ],
-          "teleport_offset": [ 0.0, 1.0, 0.0],
-          "time_of_day_range": [ 0.74999, 0.80 ],
-          "speed_multiplier": 1.0,
+          "target_range": [
+            5.0,
+            5.0,
+            5.0
+          ],
+          "teleport_offset": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "time_of_day_range": {
+            "min": 0.74999,
+            "max": 0.8
+          },
           "search_range": 5,
           "search_height": 2,
-          "search_count": 0,
           "goal_radius": 1.0,
           "entity_types": [
             {
-              "filters": { "test": "is_family", "subject": "other", "value": "player" },
+              "filters": {
+                "test": "is_family",
+                "subject": "other",
+                "value": "player"
+              },
               "max_dist": 6
             }
           ],
@@ -273,25 +331,41 @@
         }
       }
     },
-
     "components": {
+      "minecraft:ambient_sound_interval": {
+        "event_name": "ambient",
+        "event_names": [
+          {
+            "condition": "query.is_baby",
+            "event_name": "ambient.baby"
+          }
+        ],
+        "range": 16.0,
+        "value": 6.0
+      },
+      "minecraft:offspring": {
+        "offspring_pairs": {
+          "kirbycope:dyed_cat": "kirbycope:dyed_cat"
+        },
+        "combine_parent_colors": true
+      },
+      "minecraft:spawn_egg_interaction": {},
       "minecraft:leashable": {
-        "soft_distance": 4.0,
-        "hard_distance": 6.0,
-        "max_distance": 10.0
+        "unleash_on_removal": false
       },
       "minecraft:balloonable": {
         "mass": 0.6
       },
-      "minecraft:is_hidden_when_invisible": {
-      },
+      "minecraft:is_hidden_when_invisible": {},
       "minecraft:attack_damage": {
         "value": 4
       },
-      "minecraft:nameable": {
-      },
+      "minecraft:nameable": {},
       "minecraft:type_family": {
-        "family": [ "cat", "mob" ]
+        "family": [
+          "cat",
+          "mob"
+        ]
       },
       "minecraft:breathable": {
         "total_supply": 15,
@@ -316,7 +390,12 @@
       "minecraft:hurt_on_condition": {
         "damage_conditions": [
           {
-            "filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
+            "filters": {
+              "test": "in_lava",
+              "subject": "self",
+              "operator": "==",
+              "value": true
+            },
             "cause": "lava",
             "damage_per_tick": 4
           }
@@ -328,18 +407,16 @@
       "minecraft:navigation.walk": {
         "can_float": true,
         "avoid_water": true,
-        "avoid_damage_blocks": true
+        "avoid_damage_blocks": true,
+        "using_door_annotation": true
       },
-      "minecraft:movement.basic": {
-      },
-      "minecraft:jump.static": {
-      },
-      "minecraft:can_climb": {
-      },
+      "minecraft:movement.basic": {},
+      "minecraft:jump.static": {},
+      "minecraft:can_climb": {},
       "minecraft:damage_sensor": {
         "triggers": {
           "cause": "fall",
-          "deals_damage": false
+          "deals_damage": "no"
         }
       },
       "minecraft:dweller": {
@@ -354,6 +431,10 @@
       "minecraft:despawn": {
         "despawn_from_distance": {}
       },
+      "minecraft:physics": {},
+      "minecraft:pushable_by_entity": {},
+      "minecraft:pushable_by_block": {},
+      "minecraft:conditional_bandwidth_optimization": {},
       "minecraft:behavior.float": {
         "priority": 0
       },
@@ -368,8 +449,7 @@
         "track_target": true
       },
       "minecraft:behavior.leap_at_target": {
-        "priority": 3,
-        "target_dist": 0.3
+        "priority": 3
       },
       "minecraft:behavior.ocelotattack": {
         "priority": 4,
@@ -391,16 +471,8 @@
       "minecraft:behavior.look_at_player": {
         "priority": 9
       },
-      "minecraft:physics": {
-      },
-      "minecraft:pushable": {
-        "is_pushable": true,
-        "is_pushable_by_piston": true
-      },
-      "minecraft:conditional_bandwidth_optimization": {
-      }
+      "minecraft:uses_legacy_friction": {}
     },
-
     "events": {
       "minecraft:entity_spawned": {
         "sequence": [
@@ -408,8 +480,7 @@
             "randomize": [
               {
                 "weight": 3,
-                "remove": {
-                },
+                "remove": {},
                 "add": {
                   "component_groups": [
                     "minecraft:cat_adult",
@@ -419,8 +490,7 @@
               },
               {
                 "weight": 1,
-                "remove": {
-                },
+                "remove": {},
                 "add": {
                   "component_groups": [
                     "minecraft:cat_baby",
@@ -521,35 +591,23 @@
                 }
               }
             ]
+          },
+          {
+            "trigger": "minecraft:randomize_sound_variant"
           }
         ]
       },
-
       "minecraft:spawn_from_village": {
         "sequence": [
           {
             "randomize": [
               {
                 "weight": 3,
-                "remove": {
-                },
-                "add": {
-                  "component_groups": [
-                    "minecraft:cat_adult",
-                    "minecraft:cat_wild"
-                  ]
-                }
+                "trigger": "minecraft:spawn_wild_adult"
               },
               {
                 "weight": 1,
-                "remove": {
-                },
-                "add": {
-                  "component_groups": [
-                    "minecraft:cat_baby",
-                    "minecraft:cat_wild"
-                  ]
-                }
+                "trigger": "minecraft:spawn_wild_baby"
               }
             ]
           },
@@ -639,41 +697,69 @@
           }
         ]
       },
-
       "minecraft:spawn_midnight_cat": {
         "sequence": [
           {
+            "trigger": "minecraft:spawn_wild_adult",
             "add": {
               "component_groups": [
-                "minecraft:cat_adult",
-                "minecraft:cat_wild",
                 "minecraft:cat_black"
               ]
             }
           }
         ]
       },
-
       "minecraft:entity_born": {
         "sequence": [
           {
             "filters": {
-              "test": "has_component",
-              "operator": "!=",
-              "value": "minecraft:is_baby"
+              "test": "is_tamed"
             },
-            "remove": {
+            "trigger": "minecraft:spawn_tame_baby"
+          },
+          {
+            "filters": {
+              "test": "is_tamed",
+              "value": false
             },
-            "add": {
-              "component_groups": [
-                "minecraft:cat_baby",
-                "minecraft:cat_tame"
-              ]
-            }
+            "trigger": "minecraft:spawn_wild_baby"
           }
         ]
       },
-
+      "minecraft:spawn_wild_baby": {
+        "add": {
+          "component_groups": [
+            "minecraft:cat_baby",
+            "minecraft:cat_wild"
+          ]
+        }
+      },
+      "minecraft:spawn_wild_adult": {
+        "add": {
+          "component_groups": [
+            "minecraft:cat_adult",
+            "minecraft:cat_wild"
+          ]
+        },
+        "trigger": "minecraft:randomize_sound_variant"
+      },
+      "minecraft:spawn_tame_baby": {
+        "add": {
+          "component_groups": [
+            "minecraft:cat_baby",
+            "minecraft:cat_tame"
+          ]
+        }
+      },
+      "minecraft:spawn_tame_adult": {
+        "add": {
+          "component_groups": [
+            "minecraft:cat_adult",
+            "minecraft:cat_tame"
+          ]
+        },
+        "trigger": "minecraft:randomize_sound_variant"
+      },
       "minecraft:ageable_grow_up": {
         "remove": {
           "component_groups": [
@@ -684,7 +770,8 @@
           "component_groups": [
             "minecraft:cat_adult"
           ]
-        }
+        },
+        "trigger": "minecraft:randomize_sound_variant"
       },
       "minecraft:on_tame": {
         "sequence": [
@@ -717,6 +804,22 @@
             "minecraft:cat_gift_for_owner"
           ]
         }
+      },
+      "minecraft:randomize_sound_variant": {
+        "randomize": [
+          {
+            "weight": 1,
+            "set_property": {
+              "kirbycope:sound_variant": "default"
+            }
+          },
+          {
+            "weight": 1,
+            "set_property": {
+              "kirbycope:sound_variant": "royal"
+            }
+          }
+        ]
       }
     }
   }

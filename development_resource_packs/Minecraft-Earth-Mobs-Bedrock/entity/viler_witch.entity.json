@@ -1,32 +1,54 @@
 {
-  "format_version": "1.8.0",
+  "format_version": "1.10.0",
   "minecraft:client_entity": {
     "description": {
       "identifier": "kirbycope:viler_witch",
-      "min_engine_version": "1.8.0",
       "materials": {
         "default": "witch"
       },
       "textures": {
-        "default": "textures/entity/viler_witch"
+        "default": "textures/entity/earth/witch/viler/viler_witch"
       },
       "geometry": {
-        "default": "geometry.villager.witch.v1.8"
-      },
-      "scripts": {
-        "scale": "0.9375"
+        "default": "geometry.kirbycope.viler_witch"
       },
       "animations": {
-        "villager_general": "animation.villager.general",
-        "look_at_target": "animation.common.look_at_target",
-        "move": "animation.villager.move",
-        "general": "animation.witch.general"
+        "look_at_target": "animation.kirbycope.shared.look_at_target",
+        "move": "animation.kirbycope.witch.move",
+        "general": "animation.witch.general",
+        "witch_arms": "animation.kirbycope.witch.folded_arms",
+        "witch_nose": "animation.kirbycope.witch.nose",
+        "general_controller": "controller.animation.kirbycope.viler_witch.general",
+        "move_controller": "controller.animation.kirbycope.witch.move",
+        "cast": "animation.kirbycope.viler_witch.casting",
+        "blink": "controller.animation.kirbycope.shared.mob_blink"
       },
-      "animation_controllers": [
-        { "general": "controller.animation.witch.general" },
-        { "move": "controller.animation.villager.move" }
+      "sound_effects": {
+        "cast": "mob.viler_witch.cast"
+      },
+      "scripts": {
+        "scale": "0.9375",
+        "animate": [
+          "general_controller",
+          "blink"
+        ],
+        "initialize": [
+          "variable.is_blinking = 0;",
+          "variable.return_from_blink = 0;",
+          "variable.last_blink_time = 0;",
+          "variable.max_blink_time = 0.3;",
+          "variable.min_blink_rest = 3;",
+          "variable.max_blink_rest = 40;",
+          "variable.cast_preparing = 0;"
+        ],
+        "pre_animation": [
+          "variable.cast_preparing = query.property('kirbycope:anim') == 'attack';",
+          "variable.isholdingitem = query.is_item_equipped;"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.kirbycope.genoa_witch"
       ],
-      "render_controllers": [ "controller.render.witch" ],
       "spawn_egg": {
         "texture": "spawn_egg",
         "texture_index": 17

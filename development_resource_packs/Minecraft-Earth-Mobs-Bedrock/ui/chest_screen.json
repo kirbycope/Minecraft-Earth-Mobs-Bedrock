@@ -1,0 +1,111 @@
+{
+  // The Furnace Golem's inventory opens in the small chest screen, the only screen Bedrock gives an entity's container.
+  // When the screen belongs to the golem, its three slots are laid out as a furnace's instead of the chest grid:
+  // slot 0 (what to smelt) over the flame, slot 1 (fuel) under it, the arrow, and slot 2 (the result) in a large
+  // cell. Every other chest, barrel and chest minecart keeps the vanilla grid.
+  //
+  // The screen is told apart by its size. The chest controller sets $container_rows_1 when the container fits in
+  // one row, and no vanilla container opened in this screen is that small (chests, barrels, chest minecarts and
+  // chest boats are all 27 slots), so a one-row chest screen is the golem's. Its title cannot be used: Bedrock does
+  // not look up a custom entity's name for a "container" inventory and titles it entity.unknown.name ("Unknown"),
+  // and $container_title is not visible to "requires" anyway, so the layout carries its own label.
+  "namespace": "chest",
+
+  "small_chest_panel_top_half": {
+    "type": "panel",
+    "size": [ "100%", "50%" ],
+    "offset": [ 0, 12 ],
+    "anchor_to": "top_left",
+    "anchor_from": "top_left",
+    "$furnace_golem|default": false,
+    "variables": [
+      {
+        "requires": "$container_rows_1",
+        "$furnace_golem": true
+      }
+    ],
+    "controls": [
+      {
+        "chest_label@chest.chest_label": {
+          "ignored": "$furnace_golem"
+        }
+      },
+      {
+        "small_chest_grid@chest.small_chest_grid": {
+          "offset": [ 7, 9 ],
+          "ignored": "$furnace_golem"
+        }
+      },
+      {
+        "furnace_golem_panel@chest.furnace_golem_panel": {
+          "ignored": "(not $furnace_golem)"
+        }
+      }
+    ]
+  },
+
+  "furnace_golem_slot@common.container_item": {
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "$item_collection_name": "container_items"
+  },
+
+  "furnace_golem_panel": {
+    "type": "collection_panel",
+    "size": [ "100%", "100%" ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "collection_name": "container_items",
+    "controls": [
+      {
+        "label@chest.chest_label": {
+          "text": "entity.kirbycope:furnace_golem.name",
+          "localize": true
+        }
+      },
+      {
+        "input@chest.furnace_golem_slot": {
+          "offset": [ 55, 9 ],
+          "collection_index": 0
+        }
+      },
+      {
+        "flame": {
+          "type": "image",
+          "texture": "textures/ui/flame_empty_image",
+          "size": [ 13, 13 ],
+          "offset": [ 57, 29 ],
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "layer": 2
+        }
+      },
+      {
+        "fuel@chest.furnace_golem_slot": {
+          "offset": [ 55, 45 ],
+          "collection_index": 1
+        }
+      },
+      {
+        "arrow": {
+          "type": "image",
+          "texture": "textures/ui/arrow_inactive",
+          "size": [ 22, 15 ],
+          "offset": [ 79, 27 ],
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "layer": 2
+        }
+      },
+      {
+        "output@chest.furnace_golem_slot": {
+          "size": [ 26, 26 ],
+          "offset": [ 111, 22 ],
+          "collection_index": 2,
+          "$cell_image_size": [ 26, 26 ],
+          "$background_images": "crafting.crafting_container_cell_images"
+        }
+      }
+    ]
+  }
+}

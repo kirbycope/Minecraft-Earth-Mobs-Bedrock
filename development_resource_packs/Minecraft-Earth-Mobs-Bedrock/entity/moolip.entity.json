@@ -3,29 +3,44 @@
   "minecraft:client_entity": {
     "description": {
       "identifier": "kirbycope:moolip",
-      "min_engine_version": "1.8.0",
-      "materials": { "default": "cow" },
+      "materials": {
+        "default": "cow",
+        "flowers": "entity_alphatest"
+      },
       "textures": {
-        "default": "textures/entity/moolip"
+        "default": "textures/entity/earth/cow/moolip/moolip"
       },
       "geometry": {
-        "default": "geometry.cow.v1.8"
+        "default": "geometry.kirbycope.moolip"
       },
       "animations": {
-        "setup": "animation.cow.setup",
-        "walk": "animation.quadruped.walk",
-        "look_at_target": "animation.common.look_at_target",
-        "baby_transform": "animation.cow.baby_transform"
+        "setup": "animation.kirbycope.moo_bloom.setup",
+        "walk": "animation.kirbycope.quadruped.walk",
+        "look_at_target": "animation.kirbycope.common.look_at_target",
+        "baby_transform": "animation.kirbycope.moo_bloom.baby_transform",
+        "blink": "controller.animation.kirbycope.moo_bloom.blink"
       },
       "scripts": {
         "animate": [
           "setup",
-          { "walk": "query.modified_move_speed" },
+          {
+            "walk": "query.modified_move_speed"
+          },
           "look_at_target",
-          { "baby_transform": "query.is_baby" }
+          {
+            "baby_transform": "query.is_baby"
+          },
+          "blink"
+        ],
+        "initialize": [
+          "variable.is_blinking = 0;",
+          "variable.return_from_blink = 0;",
+          "variable.last_blink_time = 0;"
         ]
       },
-      "render_controllers": [ "controller.render.cow" ],
+      "render_controllers": [
+        "controller.render.kirbycope.moolip"
+      ],
       "spawn_egg": {
         "texture": "spawn_egg",
         "texture_index": 1

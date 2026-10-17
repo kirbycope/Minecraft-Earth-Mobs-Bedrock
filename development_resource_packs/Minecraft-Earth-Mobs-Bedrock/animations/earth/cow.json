@@ -1,0 +1,18 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.kirbycope.cow.baby_transform": {
+      "bones": {
+        "head": {
+          "position": [
+            0.0,
+            "query.is_baby ? 4.0 : 0.0",
+            "query.is_baby ? 4.0 : 0.0"
+          ],
+          "scale": "query.is_baby ? 2.0 : 1.0"
+        }
+      },
+      "loop": true
+    }
+  }
+}

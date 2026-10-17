@@ -1,9 +1,11 @@
 {
-  "format_version": "1.8.0",
+  "format_version": "1.10.0",
   "minecraft:client_entity": {
     "description": {
       "identifier": "kirbycope:dyed_cat",
-      "materials": { "default": "cat" },
+      "materials": {
+        "default": "cat"
+      },
       "textures": {
         "default": "textures/entity/dyed_cat"
       },
@@ -16,18 +18,29 @@
         "sprint": "animation.cat.sprint",
         "sit": "animation.cat.sit",
         "look_at_target": "animation.common.look_at_target",
-        "baby_transform": "animation.cat.baby_transform",
-        "lie_down": "animation.cat.lie_down"
+        "lie_down": "animation.cat.lie_down",
+        "look_at_controller": "controller.animation.cat.look_at_target",
+        "move_controller": "controller.animation.cat.move"
       },
-      "animation_controllers": [
-        { "look_at_target": "controller.animation.cat.look_at_target" },
-        { "move": "controller.animation.cat.move" },
-        { "baby": "controller.animation.cat.baby" }
+      "scripts": {
+        "animate": [
+          "look_at_controller",
+          "move_controller"
+        ],
+        "pre_animation": [
+          "variable.state = query.is_sitting ? 2 : (query.is_sneaking ? 0 : (query.modified_move_speed > 0.8 ? 1 : 3));",
+          "variable.liedownamount = query.is_sleeping ? 1 : 0;",
+          "variable.liedownamounttail = query.is_sleeping ? 1 : 0;",
+          "variable.lieonplayer = 0;"
+        ],
+        "scale": "1.25"
+      },
+      "render_controllers": [
+        "controller.render.default"
       ],
-      "render_controllers": [ "controller.render.default" ],
       "spawn_egg": {
-        "texture": "spawn_egg",
-        "texture_index": 53
+        "base_color": "#7d5aa6",
+        "overlay_color": "#3b2a52"
       }
     }
   }

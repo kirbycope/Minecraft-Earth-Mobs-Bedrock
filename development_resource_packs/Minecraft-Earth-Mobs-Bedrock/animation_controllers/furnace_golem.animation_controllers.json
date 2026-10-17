@@ -1,0 +1,17 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.furnace_golem.fire": {
+			"initial_state": "unlit",
+			"states": {
+				"unlit": {
+					"transitions": [ { "lit": "query.property('kirbycope:lit')" } ]
+				},
+				"lit": {
+					"animations": [ "fire" ],
+					"transitions": [ { "unlit": "!query.property('kirbycope:lit')" } ]
+				}
+			}
+		}
+	}
+}

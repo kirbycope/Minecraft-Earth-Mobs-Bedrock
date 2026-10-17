@@ -4,8 +4,8 @@
 		"name": "Minecraft Earth Mobs Bedrock",
 		"description": "Minecraft Earth Mobs Bedrock Behavior Pack",
 		"uuid": "764f7644-9901-4665-a6ae-3114f2417c89",
-		"version": [1, 0, 0],
-		"min_engine_version": [1, 19, 60]
+		"version": [1, 2, 0],
+		"min_engine_version": [1, 26, 0]
 	},
 	"metadata": {
 		"authors": ["Kirbycope"]
@@ -13,15 +13,27 @@
 	"modules": [
 		{
 			"description": "Behavior",
-			"version": [1, 0, 0],
+			"version": [1, 2, 0],
 			"uuid": "323de096-c816-418b-80fb-0fae1e61b061",
 			"type": "data"
+		},
+		{
+			"description": "Furnace Golem smelting",
+			"type": "script",
+			"language": "javascript",
+			"uuid": "b6f0a3d2-5c41-4e8a-9f27-3d6c1e8b4a95",
+			"entry": "scripts/main.js",
+			"version": [1, 2, 0]
 		}
 	],
 	"dependencies": [
 		{
 			"uuid": "1adb5f63-9a00-483b-981b-646421065fe0",
-			"version": [1, 0, 0]
+			"version": [1, 2, 8]
+		},
+		{
+			"module_name": "@minecraft/server",
+			"version": "2.6.0"
 		}
 	]
 }

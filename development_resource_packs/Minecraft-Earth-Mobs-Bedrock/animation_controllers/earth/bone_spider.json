@@ -1,0 +1,36 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.kirbycope.bone_spider.move": {
+      "states": {
+        "default": {
+          "animations": [
+            "default_leg_pose",
+            {
+              "walk": "query.modified_move_speed"
+            },
+            "look_at_target"
+          ],
+          "transitions": [
+            {
+              "spit": "variable.start_shooting_animation"
+            }
+          ]
+        },
+        "spit": {
+          "animations": [
+            "spit"
+          ],
+          "transitions": [
+            {
+              "default": "!variable.start_shooting_animation || query.any_animation_finished"
+            }
+          ],
+          "on_exit": [
+            "variable.start_shooting_animation = 0;"
+          ]
+        }
+      }
+    }
+  }
+}

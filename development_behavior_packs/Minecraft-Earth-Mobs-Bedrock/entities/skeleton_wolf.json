@@ -1,21 +1,29 @@
 {
-  "format_version": "1.18.10",
+  "format_version": "1.26.50",
   "minecraft:entity": {
     "description": {
       "identifier": "kirbycope:skeleton_wolf",
+      "spawn_category": "monster",
       "is_spawnable": true,
       "is_summonable": true,
-      "is_experimental": false
+      "properties": {
+        "kirbycope:anim": {
+          "type": "enum",
+          "values": [
+            "none",
+            "howl"
+          ],
+          "default": "none",
+          "client_sync": true
+        }
+      }
     },
-
     "component_groups": {
       "minecraft:wolf_baby": {
-        "minecraft:is_baby": {
-        },
+        "minecraft:is_baby": {},
         "minecraft:scale": {
           "value": 0.5
         },
-
         "minecraft:ageable": {
           "duration": 1200,
           "feed_items": [
@@ -31,31 +39,38 @@
             "cooked_rabbit",
             "rotten_flesh"
           ],
+          "pause_growth_items": [
+            "golden_dandelion"
+          ],
+          "reset_growth_items": [
+            "golden_dandelion"
+          ],
           "grow_up": {
             "event": "minecraft:ageable_grow_up",
             "target": "self"
           }
+        },
+        "minecraft:behavior.panic": {
+          "priority": 1,
+          "speed_multiplier": 1.25
         }
       },
-
       "minecraft:wolf_adult": {
         "minecraft:experience_reward": {
           "on_bred": "Math.Random(1,7)",
           "on_death": "query.last_hit_by_player ? Math.Random(1,3) : 0"
         },
         "minecraft:loot": {
-          "table": "loot_tables/entities/wolf.json"
+          "table": "loot_tables/entities/kirbycope/skeleton_wolf.json"
+        },
+        "minecraft:leashable_to": {
+          "unleash_on_removal": false
         },
         "minecraft:breedable": {
           "require_tame": true,
           "require_full_health": true,
           "breeds_with": {
-            "mate_type": "kirbycope:skeleton_wolf",
-            "baby_type": "kirbycope:skeleton_wolf",
-            "breed_event": {
-              "event": "minecraft:entity_born",
-              "target": "baby"
-            }
+            "kirbycope:skeleton_wolf": {}
           },
           "breed_items": [
             "chicken",
@@ -72,36 +87,29 @@
           ]
         }
       },
-
       "minecraft:wolf_angry": {
         "minecraft:angry": {
           "duration": 25,
           "broadcast_anger": true,
           "broadcast_range": 20,
+          "broadcast_anger_when_dying": false,
           "calm_event": {
             "event": "minecraft:on_calm",
             "target": "self"
           }
         },
-        "minecraft:on_target_acquired": {
-        },
-        "minecraft:rideable": {
-          "seat_count": 1,
-          "family_types": [
-            "zombie"
-          ],
-          "seats": {
-            "position": [ 0.0, 0.675, -0.1 ]
-          }
-        }
+        "minecraft:on_target_acquired": {}
       },
-
       "minecraft:wolf_wild": {
         "minecraft:behavior.avoid_mob_type": {
           "priority": 3,
           "entity_types": [
             {
-              "filters": { "test": "is_family", "subject": "other", "value": "llama" },
+              "filters": {
+                "test": "is_family",
+                "subject": "other",
+                "value": "llama"
+              },
               "max_dist": 24,
               "walk_speed_multiplier": 1.5,
               "sprint_speed_multiplier": 1.5
@@ -109,15 +117,6 @@
           ],
           "probability_per_strength": 0.14
         },
-        "minecraft:tameable": {
-          "probability": 0.33,
-          "tame_items": "bone",
-          "tame_event": {
-            "event": "minecraft:on_tame",
-            "target": "self"
-          }
-        },
-
         "minecraft:behavior.nearest_attackable_target": {
           "priority": 4,
           "reselect_targets": true,
@@ -126,11 +125,27 @@
             {
               "filters": {
                 "any_of": [
-                  { "test" :  "is_family", "subject" : "other", "value" :  "skeleton"},
-                  { "test" :  "is_family", "subject" : "other", "value" :  "sheep"},
-                  { "test" :  "is_family", "subject" : "other", "value" :  "rabbit"},
-                  { "test" :  "is_family", "subject" : "other", "value" :  "fox"}
-                ] 
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "skeleton"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "sheep"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "rabbit"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "fox"
+                  }
+                ]
               },
               "max_dist": 16
             },
@@ -175,93 +190,55 @@
         "minecraft:on_target_acquired": {
           "event": "minecraft:become_angry",
           "target": "self"
-        },
-        "minecraft:rideable": {
-          "seat_count": 1,
-          "family_types": [
-            "zombie"
-          ],
-          "seats": {
-            "position": [ 0.0, 0.675, -0.1 ]
-          }
         }
       },
-
-      "minecraft:wolf_tame": {
-        "minecraft:is_tamed": {
-        },
-        "minecraft:health": {
-          "value": 20,
-          "max": 20
-        },
-        "minecraft:color": {
-          "value": 14
-        },
-        "minecraft:behavior.follow_owner": {
-          "priority": 6,
-          "speed_multiplier": 1.0,
-          "start_distance": 10,
-          "stop_distance": 2
-        },
-        "minecraft:attack": {
-          "damage": 4
-        },
-        "minecraft:behavior.breed": {
-          "priority": 2,
-          "speed_multiplier": 1.0
-        },
-
-        "minecraft:behavior.owner_hurt_by_target": {
-          "priority": 1
-        },
-        "minecraft:behavior.owner_hurt_target": {
-          "priority": 2
-        },
-        "minecraft:behavior.nearest_attackable_target": {
-          "priority": 5,
-          "must_see": true,
-          "entity_types": [
-            {
-              "filters": { "test" :  "is_family", "subject" : "other", "value" :  "skeleton"},
-              "max_dist": 16
-            }
-          ]
-        },
-
-        "minecraft:sittable": {
-        },
-        "minecraft:is_dyeable": {
-          "interact_text": "action.interact.dye"
+      "kirbycope:howling": {
+        "minecraft:timer": {
+          "looping": true,
+          "randomInterval": true,
+          "time": [
+            12,
+            24
+          ],
+          "time_down_event": {
+            "event": "kirbycope:howl",
+            "target": "self"
+          }
         }
       }
     },
-
-
     "components": {
-      "minecraft:leashable": {
-        "soft_distance": 4.0,
-        "hard_distance": 6.0,
-        "max_distance": 10.0,
-        "on_leash": {
-          "event": "minecraft:on_leash",
-          "target": "self"
-        },
-        "on_unleash": {
-          "event": "minecraft:on_unleash",
-          "target": "self"
+      "minecraft:ambient_sound_interval": {
+        "event_name": "ambient",
+        "event_names": [
+          {
+            "condition": "query.is_baby",
+            "event_name": "ambient.baby"
+          }
+        ],
+        "range": 16.0,
+        "value": 6.0
+      },
+      "minecraft:is_hidden_when_invisible": {},
+      "minecraft:nameable": {},
+      "minecraft:offspring": {
+        "combine_parent_colors": true,
+        "offspring_pairs": {
+          "kirbycope:skeleton_wolf": "kirbycope:skeleton_wolf"
         }
-      }, 
-      "minecraft:balloonable": {
-        "mass": 0.8
       },
-      "minecraft:is_hidden_when_invisible": {
-      },
-      "minecraft:nameable": {
-      },
+      "minecraft:spawn_egg_interaction": {},
       "minecraft:type_family": {
-        "family": [ "wolf", "mob" ]
+        "family": [
+          "mob",
+          "skeleton_wolf",
+          "undead",
+          "monster"
+        ]
       },
       "minecraft:breathable": {
+        "breathes_water": true,
+        "breathes_air": true,
         "total_supply": 15,
         "suffocate_time": 0
       },
@@ -270,13 +247,18 @@
         "height": 0.8
       },
       "minecraft:health": {
-        "value": 8,
-        "max": 8
+        "value": 10,
+        "max": 10
       },
       "minecraft:hurt_on_condition": {
         "damage_conditions": [
           {
-            "filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
+            "filters": {
+              "test": "in_lava",
+              "subject": "self",
+              "operator": "==",
+              "value": true
+            },
             "cause": "lava",
             "damage_per_tick": 4
           }
@@ -287,153 +269,163 @@
       },
       "minecraft:navigation.walk": {
         "can_path_over_water": true,
-        "avoid_damage_blocks": true
+        "avoid_damage_blocks": true,
+        "using_door_annotation": true
       },
-      "minecraft:movement.basic": {
-      },
-      "minecraft:jump.static": {
-      },
-      "minecraft:can_climb": {
-      },
+      "minecraft:movement.basic": {},
+      "minecraft:jump.static": {},
+      "minecraft:can_climb": {},
       "minecraft:attack": {
-        "damage": 3
+        "damage": 4
       },
-      "minecraft:healable": {
-        "items": [
+      "minecraft:environment_sensor": {
+        "triggers": [
           {
-            "item": "porkchop",
-            "heal_amount": 3
+            "filters": {
+              "all_of": [
+                {
+                  "test": "bool_property",
+                  "operator": "!=",
+                  "domain": "kirbycope:has_increased_max_health"
+                },
+                {
+                  "test": "has_component",
+                  "value": "minecraft:is_tamed"
+                }
+              ]
+            },
+            "event": "minecraft:increase_max_health"
           },
           {
-            "item": "cooked_porkchop",
-            "heal_amount": 8
+            "filters": {
+              "all_of": [
+                {
+                  "test": "bool_property",
+                  "operator": "!=",
+                  "domain": "kirbycope:is_armorable"
+                },
+                {
+                  "test": "has_component",
+                  "operator": "!=",
+                  "value": "minecraft:is_baby"
+                },
+                {
+                  "test": "has_component",
+                  "value": "minecraft:is_tamed"
+                }
+              ]
+            },
+            "event": "minecraft:become_armorable"
           },
           {
-            "item": "fish",
-            "heal_amount": 2
-          },
-          {
-            "item": "salmon",
-            "heal_amount": 2
-          },
-          {
-            "item": "clownfish",
-            "heal_amount": 1
-          },
-          {
-            "item": "pufferfish",
-            "heal_amount": 1
-          },
-          {
-            "item": "cooked_fish",
-            "heal_amount": 5
-          },
-          {
-            "item": "cooked_salmon",
-            "heal_amount": 6
-          },
-          {
-            "item": "beef",
-            "heal_amount": 3
-          },
-          {
-            "item": "cooked_beef",
-            "heal_amount": 8
-          },
-          {
-            "item": "chicken",
-            "heal_amount": 2
-          },
-          {
-            "item": "cooked_chicken",
-            "heal_amount": 6
-          },
-          {
-            "item": "muttonRaw",
-            "heal_amount": 2
-          },
-          {
-            "item": "muttonCooked",
-            "heal_amount": 6
-          },
-          {
-            "item": "rotten_flesh",
-            "heal_amount": 4
-          },
-          {
-            "item": "rabbit",
-            "heal_amount": 3
-          },
-          {
-            "item": "cooked_rabbit",
-            "heal_amount": 5
-          },
-          {
-            "item": "rabbit_stew",
-            "heal_amount": 10
+            "filters": {
+              "test": "bool_property",
+              "operator": "!=",
+              "domain": "kirbycope:was_upgraded_to_1_21_100"
+            },
+            "event": "minecraft:upgrade_to_1_21_100"
           }
         ]
       },
       "minecraft:despawn": {
         "despawn_from_distance": {}
       },
-      "minecraft:behavior.float": {
-        "priority": 0
-      },
+      "minecraft:physics": {},
+      "minecraft:pushable_by_entity": {},
+      "minecraft:pushable_by_block": {},
+      "minecraft:conditional_bandwidth_optimization": {},
       "minecraft:behavior.mount_pathing": {
         "priority": 1,
         "speed_multiplier": 1.25,
         "target_dist": 0,
         "track_target": true
       },
-      "minecraft:behavior.stay_while_sitting": {
-        "priority": 3
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 1,
+        "entity_types": {
+          "filters": {
+            "test": "is_family",
+            "subject": "other",
+            "operator": "!=",
+            "value": "skeleton"
+          }
+        }
       },
       "minecraft:behavior.leap_at_target": {
         "priority": 4,
-        "target_dist": 0.4
+        "yd": 0.4
       },
-      "minecraft:behavior.melee_attack": {
+      "minecraft:behavior.melee_box_attack": {
         "priority": 5
+      },
+      "minecraft:behavior.look_at_player": {
+        "priority": 6,
+        "look_distance": 6.0,
+        "probability": 0.02
       },
       "minecraft:behavior.random_stroll": {
         "priority": 8,
         "speed_multiplier": 1.0
       },
-      "minecraft:behavior.look_at_player": {
-        "priority": 6,
-        "target_distance": 6.0,
-        "probability": 0.02
+      "minecraft:uses_legacy_friction": {},
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 3,
+        "must_see": true,
+        "reselect_targets": true,
+        "entity_types": [
+          {
+            "filters": {
+              "any_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "player"
+                }
+              ]
+            },
+            "max_dist": 16
+          },
+          {
+            "filters": {
+              "test": "is_family",
+              "subject": "other",
+              "value": "jumbo_rabbit"
+            },
+            "max_dist": 12
+          },
+          {
+            "filters": {
+              "any_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "furnace_golem"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "melon_golem"
+                }
+              ]
+            },
+            "max_dist": 16
+          }
+        ]
       },
-      "minecraft:behavior.beg": {
-        "priority": 9,
-        "look_distance": 8,
-        "look_time": [ 2, 4 ],
-        "items": [ "bone", "porkchop", "cooked_porkchop", "chicken", "cooked_chicken", 
-                   "beef", "cooked_beef", "rotten_flesh", "muttonraw", "muttoncooked", "rabbit", "cooked_rabbit" ]
+      "minecraft:on_target_acquired": {
+        "event": "kirbycope:hunting",
+        "target": "self"
       },
-
-      "minecraft:behavior.hurt_by_target": {
-        "priority": 3
-      },
-      "minecraft:physics": {
-      },
-      "minecraft:pushable": {
-        "is_pushable": true,
-        "is_pushable_by_piston": true
-      },
-      "minecraft:conditional_bandwidth_optimization": {
+      "minecraft:on_target_escape": {
+        "event": "kirbycope:resting",
+        "target": "self"
       }
     },
-
-
     "events": {
       "minecraft:entity_spawned": {
         "randomize": [
           {
             "weight": 9,
-            "remove": {
-            },
             "add": {
               "component_groups": [
                 "minecraft:wolf_adult",
@@ -443,30 +435,32 @@
           },
           {
             "weight": 1,
-            "remove": {
-            },
             "add": {
               "component_groups": [
                 "minecraft:wolf_baby",
                 "minecraft:wolf_wild"
               ]
-
             }
           }
         ]
       },
-
       "minecraft:entity_born": {
-        "remove": {
-        },
-        "add": {
-          "component_groups": [
-            "minecraft:wolf_baby",
-            "minecraft:wolf_tame"
-          ]
-        }
+        "sequence": [
+          {
+            "filters": {
+              "test": "is_tamed"
+            },
+            "trigger": "minecraft:spawn_tame_baby"
+          },
+          {
+            "filters": {
+              "test": "is_tamed",
+              "value": false
+            },
+            "trigger": "minecraft:spawn_wild_baby"
+          }
+        ]
       },
-
       "minecraft:ageable_grow_up": {
         "remove": {
           "component_groups": [
@@ -479,35 +473,10 @@
           ]
         }
       },
-
-      "minecraft:ageable_set_baby": {
-        "remove": {
-          "component_groups": [
-            "minecraft:wolf_adult"
-          ]
-        },
-        "add": {
-          "component_groups": [
-            "minecraft:wolf_baby"
-          ]
-        }
-      },
-
-      "minecraft:on_tame": {
-        "remove": {
-          "component_groups": [
-            "minecraft:wolf_wild"
-          ]
-        },
-        "add": {
-          "component_groups": [
-            "minecraft:wolf_tame"
-          ]
-        }
-      },
       "minecraft:become_angry": {
         "remove": {
           "component_groups": [
+            "minecraft:wolf_wild",
             "minecraft:wolf_wild"
           ]
         },
@@ -525,7 +494,40 @@
         },
         "add": {
           "component_groups": [
+            "minecraft:wolf_wild",
             "minecraft:wolf_wild"
+          ]
+        }
+      },
+      "kirbycope:hunting": {
+        "add": {
+          "component_groups": [
+            "kirbycope:howling"
+          ]
+        }
+      },
+      "kirbycope:resting": {
+        "remove": {
+          "component_groups": [
+            "kirbycope:howling"
+          ]
+        }
+      },
+      "kirbycope:howl": {
+        "set_property": {
+          "kirbycope:anim": "howl"
+        },
+        "add": {
+          "component_groups": [
+            "kirbycope:anim_reset"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "playsound mob.wolf.howl @a ~ ~ ~ 2 0.7",
+            "effect @e[family=skeleton,r=16] strength 10 0",
+            "effect @e[family=skeleton_wolf,r=16,rm=0.5] strength 10 0",
+            "particle minecraft:villager_angry ~ ~1.2 ~"
           ]
         }
       }

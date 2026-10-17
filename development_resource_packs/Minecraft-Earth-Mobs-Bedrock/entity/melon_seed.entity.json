@@ -1,0 +1,29 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kirbycope:melon_seed",
+      "materials": {
+        "default": "entity"
+      },
+      "textures": {
+        "default": "textures/entity/earth/snow_golem/melon_golem/melon_golem_projectile"
+      },
+      "geometry": {
+        "default": "geometry.kirbycope.melon_golem_projectile"
+      },
+      "animations": {
+        "move": "animation.kirbycope.melon_seed_projectile.move",
+        "move_controller": "controller.animation.kirbycope.melon_seed_projectile.move"
+      },
+      "scripts": {
+        "animate": [
+          "move_controller"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.kirbycope.melon_golem_projectile"
+      ]
+    }
+  }
+}

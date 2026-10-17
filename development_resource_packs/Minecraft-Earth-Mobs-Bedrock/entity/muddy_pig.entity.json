@@ -3,29 +3,63 @@
   "minecraft:client_entity": {
     "description": {
       "identifier": "kirbycope:muddy_pig",
-      "min_engine_version": "1.8.0",
-      "materials": { "default": "pig" },
+      "materials": {
+        "default": "entity_alphatest"
+      },
       "textures": {
-        "default": "textures/entity/muddy_pig"
+        "default": "textures/entity/earth/pig/mud_pig/mud_pig_dried",
+        "muddy": "textures/entity/earth/pig/mud_pig/mud_pig"
       },
       "geometry": {
-        "default": "geometry.pig.v1.8"
+        "default": "geometry.kirbycope.mud_pig",
+        "muddy": "geometry.kirbycope.mud_pig"
       },
       "animations": {
-        "setup": "animation.pig.setup",
-        "walk": "animation.quadruped.walk",
-        "look_at_target": "animation.common.look_at_target",
-        "baby_transform": "animation.pig.baby_transform"
+        "walk": "animation.kirbycope.mud_pig.walk",
+        "look_at_target": "animation.kirbycope.common.look_at_target",
+        "roll_in_mud": "animation.kirbycope.mud_pig.roll_in_mud",
+        "hop_into_mud": "animation.kirbycope.mud_pig.hop_into_mud",
+        "celebration_hop": "animation.kirbycope.mud_pig.celebration_hop",
+        "seek_mud": "animation.kirbycope.mud_pig.seek_mud",
+        "move": "controller.animation.kirbycope.mud_pig.move",
+        "blink": "controller.animation.kirbycope.mud_pig.blink",
+        "drip_mud": "controller.animation.kirbycope.mud_pig.drip"
+      },
+      "particle_effects": {
+        "mud_splash": "kirbycope:mud_pig_splash",
+        "mud_drip": "kirbycope:mud_pig_drip"
+      },
+      "sound_effects": {
+        "wallow": "mob.mud_pig.wallow",
+        "celebration": "mob.mud_pig.bloom",
+        "into_mud": "mob.mud_pig.bloom"
       },
       "scripts": {
         "animate": [
-          "setup",
-          { "walk": "query.modified_move_speed" },
-          "look_at_target",
-          { "baby_transform": "query.is_baby" }
+          "move",
+          "blink",
+          "drip_mud"
+        ],
+        "initialize": [
+          "variable.muddy = 0;",
+          "variable.mud_rolling = 0;",
+          "variable.seek_mud = 0;",
+          "variable.hop_into_mud = 0;",
+          "variable.celebrate_mud = 0;",
+          "variable.is_muddy = 0;",
+          "variable.is_blinking = 0;",
+          "variable.return_from_blink = 0;",
+          "variable.last_blink_time = 0;"
+        ],
+        "pre_animation": [
+          "variable.muddy = 1;",
+          "variable.is_muddy = 1;",
+          "variable.celebrate_mud = query.property('kirbycope:anim') == 'celebrate';"
         ]
       },
-      "render_controllers": [ "controller.render.pig" ],
+      "render_controllers": [
+        "controller.render.kirbycope.mud_pig"
+      ],
       "spawn_egg": {
         "texture": "spawn_egg",
         "texture_index": 2

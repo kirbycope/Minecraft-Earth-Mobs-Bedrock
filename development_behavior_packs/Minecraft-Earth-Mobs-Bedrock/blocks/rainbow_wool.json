@@ -1,0 +1,27 @@
+{
+  "format_version": "1.21.40",
+  "minecraft:block": {
+    "description": {
+      "identifier": "kirbycope:rainbow_wool",
+      "menu_category": {
+        "category": "construction",
+        "group": "itemGroup.name.wool"
+      }
+    },
+    "components": {
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "kirbycope_rainbow_wool"
+        }
+      },
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 1.2
+      },
+      "minecraft:flammable": {
+        "catch_chance_modifier": 30,
+        "destroy_chance_modifier": 60
+      },
+      "minecraft:map_color": "#d65f8a"
+    }
+  }
+}

@@ -7,3 +7,12 @@ world_templates/
 
 # the release build, written by tools/build_addon.py
 /build/
+
+# screenshots taken while testing in the client
+/captures/
+
+# Minecraft Earth's own resource pack (andiricum2/MC-Earth-Resourcepack), read by the generators, never committed
+/java/
+# Mojang/bedrock-samples, the vanilla mobs the generators start from
+/vanilla/
+__pycache__/

@@ -1,26 +1,48 @@
 {
-  "format_version": "1.8.0",
+  "format_version": "1.10.0",
   "minecraft:client_entity": {
     "description": {
       "identifier": "kirbycope:muddy_foot_rabbit",
-      "min_engine_version": "1.8.0",
-      "materials": { "default": "rabbit" },
+      "materials": {
+        "default": "entity"
+      },
       "textures": {
-        "default": "textures/entity/muddy_foot_rabbit"
+        "default": "textures/entity/earth/rabbit/muddy_foot/muddy_foot_rabbit"
       },
       "geometry": {
-        "default": "geometry.rabbit.v1.8"
+        "default": "geometry.kirbycope.rabbit"
       },
       "animations": {
-        "move": "animation.rabbit.move",
-        "baby_transform": "animation.rabbit.baby_transform",
-        "look_at_target": "animation.common.look_at_target"
+        "move": "animation.kirbycope.rabbit.move_genoa",
+        "baby_transform": "animation.kirbycope.rabbit.baby_transform_genoa",
+        "look_at_target": "animation.kirbycope.shared.look_at_target",
+        "blink": "controller.animation.kirbycope.shared.mob_blink"
       },
-      "animation_controllers": [
-        { "general": "controller.animation.rabbit.general" },
-        { "baby": "controller.animation.rabbit.baby" }
+      "scripts": {
+        "animate": [
+          "move",
+          "look_at_target",
+          {
+            "baby_transform": "query.is_baby"
+          },
+          "blink"
+        ],
+        "initialize": [
+          "variable.is_blinking = 0;",
+          "variable.return_from_blink = 0;",
+          "variable.last_blink_time = 0;",
+          "variable.max_blink_time = 0.3;",
+          "variable.min_blink_rest = 3;",
+          "variable.max_blink_rest = 40;"
+        ],
+        "pre_animation": [
+          "variable.jump_rotation = math.clamp(query.vertical_speed / 8, -1, 1);"
+        ],
+        "scale": "query.is_baby ? (1 / 0.4) : (1 / 0.6)"
+      },
+      "render_controllers": [
+        "controller.render.kirbycope.genoa_rabbit"
       ],
-      "render_controllers": [ "controller.render.default" ],
       "spawn_egg": {
         "texture": "spawn_egg",
         "texture_index": 24

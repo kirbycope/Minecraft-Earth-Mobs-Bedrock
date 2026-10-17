@@ -1,18 +1,66 @@
 {
-  "format_version": "1.8.0",
+  "format_version": "1.10.0",
   "minecraft:client_entity": {
     "description": {
       "identifier": "kirbycope:tropical_slime",
       "materials": {
         "default": "slime",
-        "outer": "slime_outer"
+        "shell": "slime_outer"
       },
       "textures": {
-        "default": "textures/entity/tropical_slime"
+        "shell": "textures/entity/earth/slime/tropical_slime/tropical_slime_shell",
+        "tropical_slime_00": "textures/entity/earth/slime/tropical_slime/tropical_slime_00",
+        "tropical_slime_01": "textures/entity/earth/slime/tropical_slime/tropical_slime_01",
+        "tropical_slime_02": "textures/entity/earth/slime/tropical_slime/tropical_slime_02",
+        "tropical_slime_03": "textures/entity/earth/slime/tropical_slime/tropical_slime_03",
+        "tropical_slime_04": "textures/entity/earth/slime/tropical_slime/tropical_slime_04",
+        "tropical_slime_05": "textures/entity/earth/slime/tropical_slime/tropical_slime_05",
+        "tropical_slime_06": "textures/entity/earth/slime/tropical_slime/tropical_slime_06",
+        "tropical_slime_07": "textures/entity/earth/slime/tropical_slime/tropical_slime_07",
+        "tropical_slime_08": "textures/entity/earth/slime/tropical_slime/tropical_slime_08",
+        "tropical_slime_09": "textures/entity/earth/slime/tropical_slime/tropical_slime_09",
+        "tropical_slime_10": "textures/entity/earth/slime/tropical_slime/tropical_slime_10",
+        "tropical_slime_11": "textures/entity/earth/slime/tropical_slime/tropical_slime_11",
+        "tropical_slime_12": "textures/entity/earth/slime/tropical_slime/tropical_slime_12",
+        "tropical_slime_13": "textures/entity/earth/slime/tropical_slime/tropical_slime_13",
+        "tropical_slime_14": "textures/entity/earth/slime/tropical_slime/tropical_slime_14",
+        "tropical_slime_15": "textures/entity/earth/slime/tropical_slime/tropical_slime_15",
+        "tropical_slime_16": "textures/entity/earth/slime/tropical_slime/tropical_slime_16",
+        "tropical_slime_17": "textures/entity/earth/slime/tropical_slime/tropical_slime_17",
+        "tropical_slime_18": "textures/entity/earth/slime/tropical_slime/tropical_slime_18",
+        "tropical_slime_19": "textures/entity/earth/slime/tropical_slime/tropical_slime_19",
+        "tropical_slime_20": "textures/entity/earth/slime/tropical_slime/tropical_slime_20",
+        "tropical_slime_21": "textures/entity/earth/slime/tropical_slime/tropical_slime_21",
+        "tropical_slime_22": "textures/entity/earth/slime/tropical_slime/tropical_slime_22",
+        "tropical_slime_23": "textures/entity/earth/slime/tropical_slime/tropical_slime_23",
+        "tropical_slime_24": "textures/entity/earth/slime/tropical_slime/tropical_slime_24",
+        "tropical_slime_25": "textures/entity/earth/slime/tropical_slime/tropical_slime_25",
+        "tropical_slime_26": "textures/entity/earth/slime/tropical_slime/tropical_slime_26",
+        "tropical_slime_27": "textures/entity/earth/slime/tropical_slime/tropical_slime_27",
+        "tropical_slime_28": "textures/entity/earth/slime/tropical_slime/tropical_slime_28",
+        "tropical_slime_29": "textures/entity/earth/slime/tropical_slime/tropical_slime_29",
+        "tropical_slime_30": "textures/entity/earth/slime/tropical_slime/tropical_slime_30",
+        "tropical_slime_31": "textures/entity/earth/slime/tropical_slime/tropical_slime_31",
+        "tropical_slime_32": "textures/entity/earth/slime/tropical_slime/tropical_slime_32",
+        "tropical_slime_33": "textures/entity/earth/slime/tropical_slime/tropical_slime_33",
+        "tropical_slime_34": "textures/entity/earth/slime/tropical_slime/tropical_slime_34",
+        "tropical_slime_35": "textures/entity/earth/slime/tropical_slime/tropical_slime_35",
+        "tropical_slime_36": "textures/entity/earth/slime/tropical_slime/tropical_slime_36",
+        "tropical_slime_37": "textures/entity/earth/slime/tropical_slime/tropical_slime_37",
+        "tropical_slime_38": "textures/entity/earth/slime/tropical_slime/tropical_slime_38",
+        "tropical_slime_39": "textures/entity/earth/slime/tropical_slime/tropical_slime_39",
+        "tropical_slime_40": "textures/entity/earth/slime/tropical_slime/tropical_slime_40",
+        "tropical_slime_41": "textures/entity/earth/slime/tropical_slime/tropical_slime_41",
+        "tropical_slime_42": "textures/entity/earth/slime/tropical_slime/tropical_slime_42",
+        "tropical_slime_43": "textures/entity/earth/slime/tropical_slime/tropical_slime_43",
+        "tropical_slime_44": "textures/entity/earth/slime/tropical_slime/tropical_slime_44",
+        "tropical_slime_45": "textures/entity/earth/slime/tropical_slime/tropical_slime_45",
+        "tropical_slime_46": "textures/entity/earth/slime/tropical_slime/tropical_slime_46",
+        "tropical_slime_47": "textures/entity/earth/slime/tropical_slime/tropical_slime_47"
       },
       "geometry": {
-        "default": "geometry.slime",
-        "armor": "geometry.slime.armor"
+        "default": "geometry.kirbycope.tropical_slime",
+        "shell": "geometry.kirbycope.tropical_slime_shell"
       },
       "scripts": {
         "pre_animation": [
@@ -26,8 +74,8 @@
         "scaleZ": "variable.horizontal_scale_amount"
       },
       "render_controllers": [
-        "controller.render.slime",
-        "controller.render.slime_armor"
+        "controller.render.kirbycope.tropical_slime",
+        "controller.render.kirbycope.tropical_slime_shell"
       ],
       "spawn_egg": {
         "texture": "spawn_egg",

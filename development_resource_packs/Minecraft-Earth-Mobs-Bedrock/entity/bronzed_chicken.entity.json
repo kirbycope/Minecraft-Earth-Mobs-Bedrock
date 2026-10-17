@@ -3,32 +3,50 @@
   "minecraft:client_entity": {
     "description": {
       "identifier": "kirbycope:bronzed_chicken",
-      "min_engine_version": "1.12.0",
       "materials": {
-        "default": "chicken",
-        "legs": "chicken_legs"
+        "default": "entity",
+        "legs": "entity_alphatest"
       },
       "textures": {
-        "default": "textures/entity/bronzed_chicken"
+        "default": "textures/entity/earth/chicken/bronzed_chicken/bronzed_chicken"
       },
       "geometry": {
-        "default": "geometry.chicken.v1.12"
+        "default": "geometry.kirbycope.chicken"
       },
       "animations": {
-        "move": "animation.chicken.move",
-        "general": "animation.chicken.general",
-        "look_at_target": "animation.common.look_at_target",
-        "baby_transform": "animation.chicken.baby_transform"
+        "move": "animation.kirbycope.chicken.move",
+        "general": "animation.kirbycope.chicken.general",
+        "look_at_target": "animation.kirbycope.shared.look_at_target",
+        "baby_transform": "animation.kirbycope.chicken.baby_transform",
+        "blink": "controller.animation.kirbycope.shared.mob_blink"
       },
       "scripts": {
         "animate": [
           "general",
-          { "move": "query.modified_move_speed" },
+          {
+            "move": "query.modified_move_speed"
+          },
           "look_at_target",
-          { "baby_transform": "query.is_baby" }
+          {
+            "baby_transform": "query.is_baby"
+          },
+          "blink"
+        ],
+        "initialize": [
+          "variable.is_blinking = 0;",
+          "variable.return_from_blink = 0;",
+          "variable.last_blink_time = 0;",
+          "variable.max_blink_time = 0.3;",
+          "variable.min_blink_rest = 3;",
+          "variable.max_blink_rest = 40;"
+        ],
+        "pre_animation": [
+          "variable.wing_flap = query.is_on_ground ? 0 : ((math.sin(query.life_time * 1700) + 1) * 0.5);"
         ]
       },
-      "render_controllers": [ "controller.render.chicken" ],
+      "render_controllers": [
+        "controller.render.kirbycope.genoa_chicken"
+      ],
       "spawn_egg": {
         "texture": "spawn_egg",
         "texture_index": 0

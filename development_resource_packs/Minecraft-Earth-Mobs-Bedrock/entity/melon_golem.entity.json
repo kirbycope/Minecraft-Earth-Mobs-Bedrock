@@ -1,36 +1,52 @@
 {
-	"format_version": "1.10.0",
-	"minecraft:client_entity": {
-		"description": {
-			"identifier": "kirbycope:melon_golem",
-			"materials": {
-				"default": "entity_alphatest"
-			},
-			"textures": {
-				"default": "textures/entity/melon_golem"
-			},
-			"geometry": {
-				"default": "geometry.melon_golem"
-			},
-			"animations": {
-				"move": "animation.melon_golem.move",
-				"sheared": "animation.melon_golem.sheared",
-				"look_at_target": "animation.common.look_at_target",
-				"move_controller": "controller.animation.snowgolem.move.v1.8"
-			},
-			"scripts": {
-				"animate": [
-					"move_controller",
-					{
-						"sheared": "query.is_sheared"
-					}
-				]
-			},
-			"render_controllers": ["controller.render.default"],
-			"spawn_egg": {
-				"base_color": "#d9f2f2",
-				"overlay_color": "#81a4a4"
-			  }
-		}
-	}
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kirbycope:melon_golem",
+      "materials": {
+        "default": "snow_golem"
+      },
+      "textures": {
+        "default": "textures/entity/earth/snow_golem/melon_golem/melon_golem"
+      },
+      "geometry": {
+        "default": "geometry.kirbycope.melon_golem"
+      },
+      "animations": {
+        "attack": "animation.kirbycope.melon_golem.attack",
+        "blink": "controller.animation.kirbycope.shared_mob.blink",
+        "shot_controller": "controller.animation.kirbycope.melon_golem.shots"
+      },
+      "sound_effects": {
+        "prep": "mob.melon_golem.spit.charge",
+        "spit": "mob.melon_golem.spit"
+      },
+      "scripts": {
+        "animate": [
+          "blink",
+          "shot_controller"
+        ],
+        "initialize": [
+          "variable.is_blinking = 0;",
+          "variable.return_from_blink = 0;",
+          "variable.last_blink_time = 0;",
+          "variable.max_blink_time = 0.2;",
+          "variable.min_blink_rest = 3;",
+          "variable.max_blink_rest = 40;",
+          "variable.is_attacking = 0;",
+          "variable.shots_fired = 0;"
+        ],
+        "pre_animation": [
+          "variable.shots_fired = query.property('kirbycope:anim') == 'attack';"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.kirbycope.melon_golem"
+      ],
+      "spawn_egg": {
+        "base_color": "#d9f2f2",
+        "overlay_color": "#81a4a4"
+      }
+    }
+  }
 }

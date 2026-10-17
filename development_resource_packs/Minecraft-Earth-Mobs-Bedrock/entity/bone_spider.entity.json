@@ -1,28 +1,50 @@
 {
-  "format_version": "1.8.0",
+  "format_version": "1.10.0",
   "minecraft:client_entity": {
     "description": {
       "identifier": "kirbycope:bone_spider",
-      "min_engine_version": "1.8.0",
       "materials": {
         "default": "spider",
         "invisible": "spider_invisible"
       },
       "textures": {
-        "default": "textures/entity/bone_spider"
+        "default": "textures/entity/earth/spider/bone_spider/bone_spider"
       },
       "geometry": {
-        "default": "geometry.spider.v1.8"
+        "default": "geometry.kirbycope.bone_spider"
       },
       "animations": {
-        "default_leg_pose": "animation.spider.default_leg_pose",
-        "look_at_target": "animation.spider.look_at_target",
-        "walk": "animation.spider.walk"
+        "default_leg_pose": "animation.kirbycope.spider.default_leg_pose",
+        "look_at_target": "animation.kirbycope.spider.look_at_target",
+        "walk": "animation.kirbycope.spider.walk",
+        "spit": "animation.kirbycope.bone_spider.spit",
+        "blink_controller": "controller.animation.kirbycope.shared_mob.blink",
+        "move_controller": "controller.animation.kirbycope.bone_spider.move"
       },
-      "animation_controllers": [
-        { "move": "controller.animation.spider.move" }
+      "sound_effects": {
+        "spit": "mob.bone_spider.spit"
+      },
+      "scripts": {
+        "animate": [
+          "move_controller",
+          "blink_controller"
+        ],
+        "initialize": [
+          "variable.is_blinking = 0;",
+          "variable.return_from_blink = 0;",
+          "variable.last_blink_time = 0;",
+          "variable.shots_fired = 0;",
+          "variable.max_blink_time = 0.2;",
+          "variable.min_blink_rest = 3;",
+          "variable.max_blink_rest = 40;"
+        ],
+        "pre_animation": [
+          "variable.start_shooting_animation = query.property('kirbycope:anim') == 'attack';"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.kirbycope.bone_spider"
       ],
-      "render_controllers": [ "controller.render.spider" ],
       "spawn_egg": {
         "texture": "spawn_egg",
         "texture_index": 11

@@ -1,0 +1,81 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.kirbycope.tropical_slime": {
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Array.frames[math.mod(math.floor(query.life_time * 17), 48)]"
+      ],
+      "arrays": {
+        "textures": {
+          "Array.frames": [
+            "Texture.tropical_slime_00",
+            "Texture.tropical_slime_01",
+            "Texture.tropical_slime_02",
+            "Texture.tropical_slime_03",
+            "Texture.tropical_slime_04",
+            "Texture.tropical_slime_05",
+            "Texture.tropical_slime_06",
+            "Texture.tropical_slime_07",
+            "Texture.tropical_slime_08",
+            "Texture.tropical_slime_09",
+            "Texture.tropical_slime_10",
+            "Texture.tropical_slime_11",
+            "Texture.tropical_slime_12",
+            "Texture.tropical_slime_13",
+            "Texture.tropical_slime_14",
+            "Texture.tropical_slime_15",
+            "Texture.tropical_slime_16",
+            "Texture.tropical_slime_17",
+            "Texture.tropical_slime_18",
+            "Texture.tropical_slime_19",
+            "Texture.tropical_slime_20",
+            "Texture.tropical_slime_21",
+            "Texture.tropical_slime_22",
+            "Texture.tropical_slime_23",
+            "Texture.tropical_slime_24",
+            "Texture.tropical_slime_25",
+            "Texture.tropical_slime_26",
+            "Texture.tropical_slime_27",
+            "Texture.tropical_slime_28",
+            "Texture.tropical_slime_29",
+            "Texture.tropical_slime_30",
+            "Texture.tropical_slime_31",
+            "Texture.tropical_slime_32",
+            "Texture.tropical_slime_33",
+            "Texture.tropical_slime_34",
+            "Texture.tropical_slime_35",
+            "Texture.tropical_slime_36",
+            "Texture.tropical_slime_37",
+            "Texture.tropical_slime_38",
+            "Texture.tropical_slime_39",
+            "Texture.tropical_slime_40",
+            "Texture.tropical_slime_41",
+            "Texture.tropical_slime_42",
+            "Texture.tropical_slime_43",
+            "Texture.tropical_slime_44",
+            "Texture.tropical_slime_45",
+            "Texture.tropical_slime_46",
+            "Texture.tropical_slime_47"
+          ]
+        }
+      }
+    },
+    "controller.render.kirbycope.tropical_slime_shell": {
+      "geometry": "Geometry.shell",
+      "materials": [
+        {
+          "*": "Material.shell"
+        }
+      ],
+      "textures": [
+        "Texture.shell"
+      ]
+    }
+  }
+}

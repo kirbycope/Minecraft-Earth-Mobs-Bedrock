@@ -3,29 +3,65 @@
   "minecraft:client_entity": {
     "description": {
       "identifier": "kirbycope:umbra_cow",
-      "min_engine_version": "1.8.0",
-      "materials": { "default": "cow" },
+      "materials": {
+        "default": "entity_alphatest"
+      },
       "textures": {
-        "default": "textures/entity/umbra_cow"
+        "default": "textures/entity/earth/cow/umbra_cow/umbra_cow",
+        "sheared": "textures/entity/earth/cow/umbra_cow/umbra_cow_sheared"
       },
       "geometry": {
-        "default": "geometry.cow.v1.8"
+        "default": "geometry.kirbycope.wooly_cow",
+        "sheared": "geometry.kirbycope.wooly_cow"
       },
       "animations": {
-        "setup": "animation.cow.setup",
-        "walk": "animation.quadruped.walk",
-        "look_at_target": "animation.common.look_at_target",
-        "baby_transform": "animation.cow.baby_transform"
+        "walk": "animation.kirbycope.wooly_cow.walk",
+        "look_at_target": "animation.kirbycope.wooly_cow.lookattarget",
+        "baby_transform": "animation.kirbycope.wooly_cow.baby_transform",
+        "shake": "animation.kirbycope.wooly_cow.shake",
+        "prep": "animation.kirbycope.wooly_cow.prep",
+        "shake_control": "controller.animation.kirbycope.wooly_cow.shake",
+        "walk_control": "controller.animation.kirbycope.wooly_cow.walk",
+        "effect_control": "controller.animation.kirbycope.fire_effect",
+        "blink": "controller.animation.kirbycope.shared.mob_blink",
+        "prep_control": "controller.animation.kirbycope.wooly_cow.prep"
+      },
+      "particle_effects": {
+        "shake_fx": "kirbycope:wooly_cow_shake"
+      },
+      "sound_effects": {
+        "shake": "mob.wooly_cow.shake",
+        "prep": "mob.wooly_cow.prep"
       },
       "scripts": {
         "animate": [
-          "setup",
-          { "walk": "query.modified_move_speed" },
-          "look_at_target",
-          { "baby_transform": "query.is_baby" }
+          {
+            "baby_transform": "query.is_baby"
+          },
+          "blink",
+          "walk_control",
+          "shake_control",
+          "effect_control",
+          "prep_control"
+        ],
+        "initialize": [
+          "variable.is_shaking = 0;",
+          "variable.is_blinking = 0;",
+          "variable.return_from_blink = 0;",
+          "variable.last_blink_time = 0;",
+          "variable.max_blink_time = 0.3;",
+          "variable.min_blink_rest = 3;",
+          "variable.max_blink_rest = 40;",
+          "variable.speed = 0;",
+          "variable.head_shake_time = 3.0;",
+          "variable.head_shake_delay = 0;",
+          "variable.fire_effect = 0;",
+          "variable.pre_growth_time = 0;"
         ]
       },
-      "render_controllers": [ "controller.render.cow" ],
+      "render_controllers": [
+        "controller.render.kirbycope.wooly_cow"
+      ],
       "spawn_egg": {
         "texture": "spawn_egg",
         "texture_index": 1
