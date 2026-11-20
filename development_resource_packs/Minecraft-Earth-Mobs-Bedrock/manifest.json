@@ -2,9 +2,9 @@
 	"format_version": 2,
 	"header": {
 		"name": "Minecraft Earth Mobs Bedrock",
-		"description": "Minecraft Earth Mobs Bedrock Resource Pack",
+		"description": "Minecraft Earth Mobs Bedrock Resource Pack 1.2.9",
 		"uuid": "1adb5f63-9a00-483b-981b-646421065fe0",
-		"version": [1, 2, 8],
+		"version": [1, 2, 9],
 		"min_engine_version": [1, 26, 0]
 	},
 	"metadata": {
@@ -15,7 +15,7 @@
 			"description": "Resources",
 			"type": "resources",
 			"uuid": "ef3af099-ce3b-4d94-8f23-f38d970132ba",
-			"version": [1, 2, 8]
+			"version": [1, 2, 9]
 		}
 	]
 }
